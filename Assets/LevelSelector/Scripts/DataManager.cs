@@ -12,6 +12,7 @@ public static class DataManager
 
         Gifts.Add("undees");
         Gifts.Add("cookie");
+        Gifts.Add("sock");
     }
 
 }

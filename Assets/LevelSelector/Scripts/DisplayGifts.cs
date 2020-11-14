@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DisplayGifts : MonoBehaviour
 {
-    public GameObject[] GiftSprites = new GameObject[10];
+    public List<GameObject> GiftSprites = new List<GameObject>();
     public Transform StartLocation;
     public float OffSet = 1f;
     List<string> Gifts;
@@ -14,6 +14,9 @@ public class DisplayGifts : MonoBehaviour
     {
         Gifts = DataManager.Gifts;
         DrawSprites();
+
+        foreach (GameObject go in GiftSprites)
+            go.SetActive(true);
     }
 
     public void DrawSprites()
@@ -22,17 +25,18 @@ public class DisplayGifts : MonoBehaviour
 
         Gifts = DataManager.Gifts;
 
-        for (int i = 0; i < GiftSprites.Length; i++)
+        foreach(GameObject go in GiftSprites)
         {
-            Debug.Log(GiftSprites[i].name);
-            if ( Gifts.Contains(GiftSprites[i].name) )// && GiftSprites[i].activeSelf)
+            Debug.Log(go.name);
+            string name = go.name;
+
+            if ( Gifts.Contains(name)  && go.activeSelf)
             {
-                GiftSprites[i] = Instantiate(GiftSprites[i], StartLocation.position - new Vector3((OffSet * i), 0, 0), StartLocation.rotation);
-                GiftSprites[i].SetActive(true);
+                go.SetActive(true);
             }
             else
             {
-                GiftSprites[i].SetActive(false);
+                go.SetActive(false);
             }
         }
     }

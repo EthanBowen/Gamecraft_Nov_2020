@@ -23,6 +23,8 @@ public class DummyController : MonoBehaviour
     {
         if(OnScreen())
         {
+            if(!wasActive)
+                gameObject.AddComponent<Scroller>();
             wasActive = true;
             MoveTowardsPlayer();
             RotateTowardsPlayer();

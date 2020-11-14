@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Projectile
   - EnemyProjectile
+  - Gift
+  - chimney
   layers:
   - Default
   - TransparentFX

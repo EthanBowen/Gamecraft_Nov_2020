@@ -26,6 +26,7 @@ public class PlayerControl : MonoBehaviour
 
     public int HP = 3;
     public float SPEED = 3f;
+    public int GiftCount = 10;
 
 
     // Start is called before the first frame update
@@ -68,7 +69,13 @@ public class PlayerControl : MonoBehaviour
 
     private void DropGift()
     {
-        Instantiate(shot, giftPoint.position, giftPoint.rotation);
+        if(GiftCount > 0 )
+        {
+            Instantiate(Gift, giftPoint.position, giftPoint.rotation);
+            GiftCount--;
+        }
+        else if (GiftCount == - 1)
+            Instantiate(Gift, giftPoint.position, giftPoint.rotation);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

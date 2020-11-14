@@ -8,8 +8,6 @@ using TMPro;
 
 public class SelectLevel : MonoBehaviour
 {
-    //////////////////////IMPORTANT////////////////////////////
-    //All these lists must have the SAME length
     public List<LevelProperties> Levels;
     public GameObject SelectorSprite;
     public GameObject TextField;
@@ -81,8 +79,9 @@ public class SelectLevel : MonoBehaviour
             //sets the gift status to delivered in the data manager
             GiftRemovedHandler.Invoke();
 
+            DataManager.CurrentGiftLevel = Levels[CurrentSelection].Gift;
             /////////////////////UNCOMMENT FOR LEVEL TRANSITION///////////////////////////
-            //SceneManager.LoadScene(Levels[CurrentSelection].GetComponent<LevelProperties>().LevelName);
+            SceneManager.LoadScene(Levels[CurrentSelection].LevelName);
         }
         else
         {
@@ -106,8 +105,7 @@ public class SelectLevel : MonoBehaviour
             //sets the text to display
             //thanks if the gift was delivered and denial if not
             DataManager.Gifts.TryGetValue(GetGiftName(), out DataManager.Status giftStatus);
-            if (
-                giftStatus.GiftStatus == GiftStatus.delivered && giftStatus.LevelUsedOn == Levels[CurrentSelection].LevelName)
+            if ( giftStatus.GiftStatus == GiftStatus.delivered && giftStatus.LevelUsedOn == Levels[CurrentSelection].LevelName)
             {
                 TextField.GetComponent<TextMeshProUGUI>().text = Levels[CurrentSelection].ThanksText;
             }

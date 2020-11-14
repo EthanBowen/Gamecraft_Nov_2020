@@ -569,7 +569,7 @@ PrefabInstance:
       objectReference: {fileID: 8812385090840828577, guid: 325a52a5c53d2c0419318093bcd6ea1e, type: 3}
     - target: {fileID: 8760882308879255288, guid: 6f041a405e75e4909a7e9bf26f059f03, type: 3}
       propertyPath: GiftCount
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8760882308879255288, guid: 6f041a405e75e4909a7e9bf26f059f03, type: 3}
       propertyPath: giftPoint
@@ -577,7 +577,7 @@ PrefabInstance:
       objectReference: {fileID: 945360953}
     - target: {fileID: 8760882308879255288, guid: 6f041a405e75e4909a7e9bf26f059f03, type: 3}
       propertyPath: TimeBetweenGifts
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8760882308879255290, guid: 6f041a405e75e4909a7e9bf26f059f03, type: 3}
       propertyPath: m_Name

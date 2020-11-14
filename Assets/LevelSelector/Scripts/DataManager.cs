@@ -5,12 +5,13 @@ using UnityEngine;
 public static class DataManager
 {
     public static Dictionary<string, Status> Gifts;
-    //public static Dictionary<string, string> LevelConsumedOn;
     public static string CurrentGiftLevel;
+    public static int Points;
 
     static DataManager()
     {
         Gifts = new Dictionary<string, Status>();
+        Points = 0;
 
         Status status;
         status.GiftStatus = GiftStatus.stocked;

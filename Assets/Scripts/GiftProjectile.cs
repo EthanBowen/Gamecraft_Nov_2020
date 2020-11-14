@@ -6,12 +6,6 @@ public class GiftProjectile : MonoBehaviour
 {
     public float Speed = 4f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -21,6 +15,10 @@ public class GiftProjectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("chimney"))
+        {
+            DataManager.Points++;
+            Debug.Log(DataManager.Points);
             Destroy(gameObject);
+        }
     }
 }

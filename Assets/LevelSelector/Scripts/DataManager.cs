@@ -11,6 +11,7 @@ public static class DataManager
     static DataManager()
     {
         Gifts = new Dictionary<string, Status>();
+        Points = 0;
 
         Status status;
         status.GiftStatus = GiftStatus.stocked;

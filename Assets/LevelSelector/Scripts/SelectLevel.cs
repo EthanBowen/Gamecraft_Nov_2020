@@ -11,6 +11,7 @@ public class SelectLevel : MonoBehaviour
     public List<LevelProperties> Levels;
     public GameObject SelectorSprite;
     public GameObject TextField;
+    public TextMeshProUGUI PointsText;
 
     private int CurrentSelection;
     private GameObject Selector;
@@ -24,6 +25,7 @@ public class SelectLevel : MonoBehaviour
     {
         //sets the selector to the first place in the list
         CurrentSelection = 0;
+        PointsText.text = "Gifts Delivered:  " + DataManager.Points.ToString();
         Selector = Instantiate(SelectorSprite, Levels[CurrentSelection].transform);
         ChangeSelection();
     }

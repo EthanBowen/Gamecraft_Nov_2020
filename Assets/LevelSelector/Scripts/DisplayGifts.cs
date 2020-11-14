@@ -6,7 +6,7 @@ public class DisplayGifts : MonoBehaviour
 {
     public GameObject[] GiftSprites = new GameObject[10];
     public Transform StartLocation;
-    public float OffSet = 3f;
+    public float OffSet = 1f;
     List<string> Gifts;
 
     // Start is called before the first frame update
@@ -24,10 +24,11 @@ public class DisplayGifts : MonoBehaviour
 
         for (int i = 0; i < GiftSprites.Length; i++)
         {
-
-            if (Gifts.Contains(GiftSprites[i].name) && GiftSprites[i].activeSelf)
+            Debug.Log(GiftSprites[i].name);
+            if ( Gifts.Contains(GiftSprites[i].name) )// && GiftSprites[i].activeSelf)
             {
-                GiftSprites[i] = Instantiate(GiftSprites[i], StartLocation.position + new Vector3((OffSet * i), 0, 0), StartLocation.rotation);
+                GiftSprites[i] = Instantiate(GiftSprites[i], StartLocation.position - new Vector3((OffSet * i), 0, 0), StartLocation.rotation);
+                GiftSprites[i].SetActive(true);
             }
             else
             {

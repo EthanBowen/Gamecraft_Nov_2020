@@ -2,17 +2,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class SelectLevel : MonoBehaviour
 {
     //////////////////////IMPORTANT////////////////////////////
     //All these lists must have the SAME length
-    public Transform[] LevelLocations = new Transform[2];
+    public GameObject[] Levels = new GameObject[2];
     public string[] LevelNames = new string[2];
+    //public List<string> Gifts = new List<string>();
+
     public GameObject SelectorSprite;
     int CurrentSelection;
     private GameObject Selector;
+
+    bool CanSelect;
+
+    public UnityEvent GiftRemovedHandler;
 
 
     // Start is called before the first frame update
@@ -20,7 +27,7 @@ public class SelectLevel : MonoBehaviour
     {
         //sets the selector to the first place in the list
         CurrentSelection = 0;
-        Selector = Instantiate(SelectorSprite, LevelLocations[CurrentSelection]);
+        Selector = Instantiate(SelectorSprite, Levels[CurrentSelection].transform);
         ChangeSelection();
     }
 
@@ -34,7 +41,7 @@ public class SelectLevel : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             CurrentSelection++;
-            if (CurrentSelection > LevelLocations.Length - 1)
+            if (CurrentSelection > Levels.Length - 1)
                 CurrentSelection = 0;
 
             ChangeSelection();
@@ -44,7 +51,7 @@ public class SelectLevel : MonoBehaviour
         {
             CurrentSelection--;
             if (CurrentSelection < 0)
-                CurrentSelection = LevelLocations.Length - 1;
+                CurrentSelection = Levels.Length - 1;
 
              ChangeSelection();
         }
@@ -60,8 +67,21 @@ public class SelectLevel : MonoBehaviour
     {
         //transition into the scene
         //get name from the string array
-        Debug.Log(LevelNames[CurrentSelection]);
-        //SceneManager.LoadScene(LevelNames[CurrentSelection]);
+
+        CanSelect = DataManager.Gifts.Contains(Levels[CurrentSelection].GetComponent<LevelProperties>().Gift);
+
+        if (CanSelect)
+        {
+            Debug.Log("Can Select" + LevelNames[CurrentSelection]);
+            DataManager.Gifts.Remove(Levels[CurrentSelection].GetComponent<LevelProperties>().Gift);
+            GiftRemovedHandler.Invoke();
+            
+            //SceneManager.LoadScene(LevelNames[CurrentSelection]);
+        }
+        else
+        {
+            Debug.Log("Cant select");
+        }
     }
 
     private void ChangeSelection()
@@ -69,8 +89,9 @@ public class SelectLevel : MonoBehaviour
         //throw new NotImplementedException();
 
         //puts the sprite over the selected level
-        Selector.transform.position = LevelLocations[CurrentSelection].position;
-        //SelectorLocations[CurrentSelection].position;
+        Selector.transform.position = Levels[CurrentSelection].transform.position;
+
+        CanSelect = DataManager.Gifts.Contains(Levels[CurrentSelection].GetComponent<LevelProperties>().Gift);
     }
 
 }

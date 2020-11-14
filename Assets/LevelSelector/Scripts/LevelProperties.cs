@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class LevelProperties : MonoBehaviour
 {
-    public GameObject Gift;
+    public string Gift;
 }

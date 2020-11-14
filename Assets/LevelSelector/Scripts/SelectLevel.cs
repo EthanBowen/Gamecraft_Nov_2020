@@ -68,33 +68,30 @@ public class SelectLevel : MonoBehaviour
         //transition into the scene
         //get name from the string array
 
-        CanSelect = DataManager.Gifts.Contains(Levels[CurrentSelection].GetComponent<LevelProperties>().Gift);
+        SetCanSelect();
 
         if (CanSelect)
         {
-            //TextField.GetComponent<TextMeshProUGUI>().text = Levels[CurrentSelection].GetComponent<LevelProperties>().AcceptDialog;
             Debug.Log("Can Select" + LevelNames[CurrentSelection]);
+
             DataManager.Gifts.Remove(Levels[CurrentSelection].GetComponent<LevelProperties>().Gift);
+            DataManager.Gifts.Add(Levels[CurrentSelection].GetComponent<LevelProperties>().Gift, false);
             GiftRemovedHandler.Invoke();
 
             //SceneManager.LoadScene(LevelNames[CurrentSelection]);
         }
         else
         {
-
-            //TextField.GetComponent<TextMeshProUGUI>().text = Levels[CurrentSelection].GetComponent<LevelProperties>().DenialDialog;
             Debug.Log("Cant select");
         }
     }
 
     private void ChangeSelection()
     {
-        //throw new NotImplementedException();
-
         //puts the sprite over the selected level
         Selector.transform.position = Levels[CurrentSelection].transform.position;
 
-        CanSelect = DataManager.Gifts.Contains(Levels[CurrentSelection].GetComponent<LevelProperties>().Gift);
+        SetCanSelect();
 
         if (CanSelect)
         {
@@ -102,8 +99,26 @@ public class SelectLevel : MonoBehaviour
         }
         else
         {
-            TextField.GetComponent<TextMeshProUGUI>().text = Levels[CurrentSelection].GetComponent<LevelProperties>().DenialDialog;
+            if(DataManager.Gifts.TryGetValue(GetGiftName(), out bool value ) && !value)
+            {
+                TextField.GetComponent<TextMeshProUGUI>().text = Levels[CurrentSelection].GetComponent<LevelProperties>().ThanksText;
+            }
+            else
+            {
+                TextField.GetComponent<TextMeshProUGUI>().text = Levels[CurrentSelection].GetComponent<LevelProperties>().DenialDialog;
+            }
+
         }
+    }
+
+    private void SetCanSelect()
+    {
+        CanSelect = DataManager.Gifts.TryGetValue(Levels[CurrentSelection].GetComponent<LevelProperties>().Gift, out bool value) && value;
+    }
+
+    private string GetGiftName()
+    {
+        return Levels[CurrentSelection].GetComponent<LevelProperties>().Gift;
     }
 
 }

@@ -269,7 +269,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &230296119
 GameObject:
@@ -302,9 +302,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gift: kcnjsa
   LevelName: someotherlevel
-  AcceptDialog: "Big pls\t"
-  DenialDialog: "fack off\t"
-  ThanksText: why
+  AcceptDialog: "bogus gift\t"
+  DenialDialog: no bogus gift
+  ThanksText: why no bogus gift
 --- !u!4 &230296121
 Transform:
   m_ObjectHideFlags: 0
@@ -317,7 +317,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &244029169
 GameObject:
@@ -466,7 +466,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8255312347479079343, guid: beb3e62a72184ac4e9caf36637318190, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8255312347479079343, guid: beb3e62a72184ac4e9caf36637318190, type: 3}
       propertyPath: m_LocalPosition.x
@@ -624,7 +624,7 @@ Transform:
   m_Children:
   - {fileID: 1361151843}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &700922837 stripped
 GameObject:
@@ -713,6 +713,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &844111568
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 844111570}
+  - component: {fileID: 844111569}
+  m_Layer: 0
+  m_Name: Level (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &844111569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 844111568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed3ab92b17f26149a434f68561d85d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Gift: cookie
+  LevelName: someotherlevel
+  AcceptDialog: "cookie pls\t"
+  DenialDialog: why no cookie
+  ThanksText: tahnks for the cookie
+--- !u!4 &844111570
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 844111568}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.45, y: 3.37, z: -2.016191}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &874161174
 GameObject:
@@ -882,9 +930,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gift: cookie
   LevelName: someLevel
-  AcceptDialog: "sup\t"
-  DenialDialog: nah
-  ThanksText: Thanks mate
+  AcceptDialog: want cookie
+  DenialDialog: nah cookie
+  ThanksText: thanks for the cookie
 --- !u!4 &1354778610
 Transform:
   m_ObjectHideFlags: 0
@@ -897,7 +945,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1361151842
 GameObject:
@@ -1009,7 +1057,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1435554992 stripped
 GameObject:
@@ -1029,7 +1077,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7688331472801182558, guid: 27db891cbcf24b445a974ad781f85f2b, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7688331472801182558, guid: 27db891cbcf24b445a974ad781f85f2b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1228,6 +1276,7 @@ MonoBehaviour:
   - {fileID: 1354778608}
   - {fileID: 179528687}
   - {fileID: 230296119}
+  - {fileID: 844111568}
   SelectorSprite: {fileID: 2726176421252748641, guid: 27a640676e13fcb44888a765ac7a568e, type: 3}
   TextField: {fileID: 244029169}
   GiftRemovedHandler:
@@ -1268,7 +1317,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1669318892068409028, guid: 4571104514a2f63449e07a4d4046c777, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1669318892068409028, guid: 4571104514a2f63449e07a4d4046c777, type: 3}
       propertyPath: m_LocalPosition.x

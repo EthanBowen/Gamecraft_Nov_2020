@@ -6,7 +6,7 @@ public class DisplayGifts : MonoBehaviour
 {
     public List<GameObject> GiftSprites = new List<GameObject>();
     public Transform StartLocation;
-    Dictionary<string, bool> Gifts;
+    Dictionary<string, DataManager.GiftStatus> Gifts;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +30,8 @@ public class DisplayGifts : MonoBehaviour
             Debug.Log(go.name);
             string name = go.name;
 
-            if ( Gifts.TryGetValue(name, out bool value) && value)
+            //If the player has the gift with them the gift is displayed
+            if ( Gifts.TryGetValue(name, out DataManager.GiftStatus value) && value == DataManager.GiftStatus.stocked)
             {
                 go.SetActive(true);
             }

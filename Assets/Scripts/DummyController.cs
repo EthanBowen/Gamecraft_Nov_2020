@@ -21,8 +21,10 @@ public class DummyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(OnScreen())
+        if(OnScreen() && player)
         {
+            if(!wasActive)
+                gameObject.AddComponent<Scroller>();
             wasActive = true;
             MoveTowardsPlayer();
             RotateTowardsPlayer();
@@ -30,7 +32,11 @@ public class DummyController : MonoBehaviour
         else
         {
             if (wasActive)
+            {
+                // Keep moving forward
+                transform.position += transform.right * speed * Time.deltaTime;
                 Invoke(nameof(RemoveFromScene), 1.0f);
+            }
         }
     }
 

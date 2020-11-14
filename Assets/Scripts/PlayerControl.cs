@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerControl : MonoBehaviour
@@ -23,6 +24,10 @@ public class PlayerControl : MonoBehaviour
     public KeyCode left = KeyCode.LeftArrow;
     public KeyCode attack = KeyCode.Space;
     public KeyCode dropGift = KeyCode.S;
+
+    //Debug commands
+    public KeyCode fail = KeyCode.F;
+    public KeyCode succed = KeyCode.G;
 
     public int HP = 3;
     public float SPEED = 3f;
@@ -69,6 +74,30 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetKeyDown(dropGift))
             DropGift();
 
+        //Debug Commands
+        if (Input.GetKeyDown(fail))
+            Fail();
+
+        if (Input.GetKeyDown(succed))
+            Succed();
+    }
+
+    private void Succed()
+    {
+        var temp = DataManager.Gifts[DataManager.CurrentGiftLevel];
+        temp.GiftStatus = GiftStatus.delivered;
+        DataManager.Gifts[DataManager.CurrentGiftLevel] = temp;
+
+        SceneManager.LoadScene("VincentsAwesomeScene");
+    }
+
+    private void Fail()
+    {
+        var temp = DataManager.Gifts[DataManager.CurrentGiftLevel];
+        temp.GiftStatus = GiftStatus.lost;
+        DataManager.Gifts[DataManager.CurrentGiftLevel] = temp;
+
+        SceneManager.LoadScene("VincentsAwesomeScene");
     }
 
     private void DropGift()

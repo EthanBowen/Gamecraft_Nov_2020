@@ -52,14 +52,15 @@ public class DummyController : MonoBehaviour
 
     private void RotateTowardsPlayer()
     {
+        float t = Time.deltaTime * speed;
         if ((transform.position - player.position).x < 0)
-            return;
+            t = Time.deltaTime * 0.5f;
 
         // https://answers.unity.com/questions/650460/rotating-a-2d-sprite-to-face-a-target-on-a-single.html
         Vector3 vectorToTarget = player.position - transform.position;
         float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-        transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * speed);
+        transform.rotation = Quaternion.Slerp(transform.rotation, q, t);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

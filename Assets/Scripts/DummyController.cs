@@ -30,7 +30,11 @@ public class DummyController : MonoBehaviour
         else
         {
             if (wasActive)
+            {
+                // Keep moving forward
+                transform.position += transform.right * speed * Time.deltaTime;
                 Invoke(nameof(RemoveFromScene), 1.0f);
+            }
         }
     }
 

@@ -5,8 +5,8 @@ using UnityEngine;
 public static class DataManager
 {
     public static Dictionary<string, Status> Gifts;
-    //public static Dictionary<string, string> LevelConsumedOn;
     public static string CurrentGiftLevel;
+    public static int Points;
 
     static DataManager()
     {

@@ -83,7 +83,7 @@ public class LeprechaunAI : MonoBehaviour
         renderer.color = Color.red;
         aggro = true;
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
 
         //Start charging
         charging = true;

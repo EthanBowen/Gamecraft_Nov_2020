@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
@@ -12,13 +13,16 @@ public class PlayerControl : MonoBehaviour
     private float vely;
 
     public Transform shootPoint;
+    public Transform giftPoint;
     public GameObject shot;
+    public GameObject Gift;
 
     public KeyCode up = KeyCode.UpArrow;
     public KeyCode down = KeyCode.DownArrow;
     public KeyCode right = KeyCode.RightArrow;
     public KeyCode left = KeyCode.LeftArrow;
     public KeyCode attack = KeyCode.Space;
+    public KeyCode dropGift = KeyCode.S;
 
     public int HP = 3;
     public float SPEED = 3f;
@@ -57,6 +61,14 @@ public class PlayerControl : MonoBehaviour
 
         if (Input.GetKeyDown(attack))
             Fire();
+
+        if (Input.GetKeyDown(dropGift))
+            DropGift();
+    }
+
+    private void DropGift()
+    {
+        Instantiate(shot, giftPoint.position, giftPoint.rotation);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

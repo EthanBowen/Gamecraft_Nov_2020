@@ -6,7 +6,6 @@ public class DisplayGifts : MonoBehaviour
 {
     public List<GameObject> GiftSprites = new List<GameObject>();
     public Transform StartLocation;
-    public float OffSet = 1f;
     List<string> Gifts;
 
     // Start is called before the first frame update

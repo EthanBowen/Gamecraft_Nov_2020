@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class SelectLevel : MonoBehaviour
 {
@@ -11,13 +12,12 @@ public class SelectLevel : MonoBehaviour
     //All these lists must have the SAME length
     public GameObject[] Levels = new GameObject[2];
     public string[] LevelNames = new string[2];
-    //public List<string> Gifts = new List<string>();
-
     public GameObject SelectorSprite;
-    int CurrentSelection;
-    private GameObject Selector;
+    public GameObject TextField;
 
-    bool CanSelect;
+    private int CurrentSelection;
+    private GameObject Selector;
+    private bool CanSelect;
 
     public UnityEvent GiftRemovedHandler;
 
@@ -72,14 +72,17 @@ public class SelectLevel : MonoBehaviour
 
         if (CanSelect)
         {
+            //TextField.GetComponent<TextMeshProUGUI>().text = Levels[CurrentSelection].GetComponent<LevelProperties>().AcceptDialog;
             Debug.Log("Can Select" + LevelNames[CurrentSelection]);
             DataManager.Gifts.Remove(Levels[CurrentSelection].GetComponent<LevelProperties>().Gift);
             GiftRemovedHandler.Invoke();
-            
+
             //SceneManager.LoadScene(LevelNames[CurrentSelection]);
         }
         else
         {
+
+            //TextField.GetComponent<TextMeshProUGUI>().text = Levels[CurrentSelection].GetComponent<LevelProperties>().DenialDialog;
             Debug.Log("Cant select");
         }
     }
@@ -92,6 +95,15 @@ public class SelectLevel : MonoBehaviour
         Selector.transform.position = Levels[CurrentSelection].transform.position;
 
         CanSelect = DataManager.Gifts.Contains(Levels[CurrentSelection].GetComponent<LevelProperties>().Gift);
+
+        if (CanSelect)
+        {
+            TextField.GetComponent<TextMeshProUGUI>().text = Levels[CurrentSelection].GetComponent<LevelProperties>().AcceptDialog;
+        }
+        else
+        {
+            TextField.GetComponent<TextMeshProUGUI>().text = Levels[CurrentSelection].GetComponent<LevelProperties>().DenialDialog;
+        }
     }
 
 }

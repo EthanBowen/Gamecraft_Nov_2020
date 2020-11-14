@@ -154,6 +154,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textContainer: {fileID: 1976770079}
   text: {fileID: 1458113812}
+  startText: []
+  endText: []
   showingDialogue: 1
 --- !u!4 &54893851
 Transform:
@@ -229,6 +231,7 @@ MonoBehaviour:
   right: 275
   left: 276
   attack: 32
+  HP: 3
   SPEED: 3
 --- !u!70 &75003639
 CapsuleCollider2D:
@@ -880,7 +883,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -98.60003, y: -66.100006}
+  m_AnchoredPosition: {x: -98.60004, y: -66.100006}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1458113812

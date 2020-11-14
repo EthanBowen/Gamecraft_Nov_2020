@@ -5,10 +5,12 @@ using UnityEngine;
 public static class DataManager
 {
     public static List<string> Gifts;
+    //public static Dictionary<string, bool> Gifts;
 
     static DataManager()
     {
-        Gifts = new List<string>();
+        Gifts = new List<string>();//new Dictionary<string, bool>();
+
 
         Gifts.Add("undees");
         Gifts.Add("cookie");

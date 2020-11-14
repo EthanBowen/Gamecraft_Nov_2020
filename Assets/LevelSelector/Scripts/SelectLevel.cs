@@ -10,7 +10,7 @@ public class SelectLevel : MonoBehaviour
 {
     //////////////////////IMPORTANT////////////////////////////
     //All these lists must have the SAME length
-    public GameObject[] Levels = new GameObject[2];
+    public List<LevelProperties> Levels;
     public GameObject SelectorSprite;
     public GameObject TextField;
 
@@ -40,7 +40,7 @@ public class SelectLevel : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             CurrentSelection++;
-            if (CurrentSelection > Levels.Length - 1)
+            if (CurrentSelection > Levels.Count - 1)
                 CurrentSelection = 0;
 
             ChangeSelection();
@@ -50,7 +50,7 @@ public class SelectLevel : MonoBehaviour
         {
             CurrentSelection--;
             if (CurrentSelection < 0)
-                CurrentSelection = Levels.Length - 1;
+                CurrentSelection = Levels.Count - 1;
 
              ChangeSelection();
         }
@@ -71,10 +71,14 @@ public class SelectLevel : MonoBehaviour
 
         if (CanSelect)
         {
-            Debug.Log("Can Select " + Levels[CurrentSelection].GetComponent<LevelProperties>().LevelName);
+            Debug.Log("Can Select " + Levels[CurrentSelection].LevelName);
+
+            var temp = DataManager.Gifts[Levels[CurrentSelection].Gift];
+            temp.GiftStatus = GiftStatus.delivered;
+            temp.LevelUsedOn = Levels[CurrentSelection].LevelName;
+            DataManager.Gifts[Levels[CurrentSelection].Gift] = temp;
 
             //sets the gift status to delivered in the data manager
-            DataManager.Gifts[Levels[CurrentSelection].GetComponent<LevelProperties>().Gift] = DataManager.GiftStatus.delivered;
             GiftRemovedHandler.Invoke();
 
             /////////////////////UNCOMMENT FOR LEVEL TRANSITION///////////////////////////
@@ -95,19 +99,21 @@ public class SelectLevel : MonoBehaviour
 
         if (CanSelect)
         {
-            TextField.GetComponent<TextMeshProUGUI>().text = Levels[CurrentSelection].GetComponent<LevelProperties>().AcceptDialog;
+            TextField.GetComponent<TextMeshProUGUI>().text = Levels[CurrentSelection].AcceptDialog;
         }
         else
         {
             //sets the text to display
             //thanks if the gift was delivered and denial if not
-            if(DataManager.Gifts.TryGetValue(GetGiftName(), out DataManager.GiftStatus giftStatus ) && giftStatus == DataManager.GiftStatus.delivered)
+            DataManager.Gifts.TryGetValue(GetGiftName(), out DataManager.Status giftStatus);
+            if (
+                giftStatus.GiftStatus == GiftStatus.delivered && giftStatus.LevelUsedOn == Levels[CurrentSelection].LevelName)
             {
-                TextField.GetComponent<TextMeshProUGUI>().text = Levels[CurrentSelection].GetComponent<LevelProperties>().ThanksText;
+                TextField.GetComponent<TextMeshProUGUI>().text = Levels[CurrentSelection].ThanksText;
             }
             else
             {
-                TextField.GetComponent<TextMeshProUGUI>().text = Levels[CurrentSelection].GetComponent<LevelProperties>().DenialDialog;
+                TextField.GetComponent<TextMeshProUGUI>().text = Levels[CurrentSelection].DenialDialog;
             }
 
         }
@@ -115,12 +121,11 @@ public class SelectLevel : MonoBehaviour
 
     private void SetCanSelect()
     {
-        CanSelect = DataManager.Gifts.TryGetValue(Levels[CurrentSelection].GetComponent<LevelProperties>().Gift, out DataManager.GiftStatus giftStatus) && giftStatus == DataManager.GiftStatus.stocked;
+        CanSelect = DataManager.Gifts.TryGetValue(Levels[CurrentSelection].Gift, out DataManager.Status giftStatus) && giftStatus.GiftStatus == GiftStatus.stocked;
     }
 
     private string GetGiftName()
     {
-        return Levels[CurrentSelection].GetComponent<LevelProperties>().Gift;
+        return Levels[CurrentSelection].Gift;
     }
-
 }

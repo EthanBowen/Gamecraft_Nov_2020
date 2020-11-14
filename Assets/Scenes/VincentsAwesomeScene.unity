@@ -236,7 +236,7 @@ GameObject:
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -284,7 +284,7 @@ GameObject:
   m_Layer: 0
   m_Name: Level (2)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -353,7 +353,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -638.9, y: -380.5}
+  m_AnchoredPosition: {x: -107, y: -273}
   m_SizeDelta: {x: 542.1497, y: 230.52075}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &244029171
@@ -727,7 +727,7 @@ GameObject:
   m_Layer: 0
   m_Name: Level (3)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -744,7 +744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gift: cookie
-  LevelName: someotherlevel
+  LevelName: thirdlevel
   AcceptDialog: "cookie pls\t"
   DenialDialog: why no cookie
   ThanksText: tahnks for the cookie
@@ -912,7 +912,7 @@ GameObject:
   m_Layer: 0
   m_Name: Level (1)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1273,10 +1273,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Levels:
-  - {fileID: 1354778608}
-  - {fileID: 179528687}
-  - {fileID: 230296119}
-  - {fileID: 844111568}
+  - {fileID: 179528688}
+  - {fileID: 1354778609}
+  - {fileID: 230296120}
+  - {fileID: 844111569}
   SelectorSprite: {fileID: 2726176421252748641, guid: 27a640676e13fcb44888a765ac7a568e, type: 3}
   TextField: {fileID: 244029169}
   GiftRemovedHandler:

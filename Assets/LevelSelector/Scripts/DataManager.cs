@@ -4,18 +4,29 @@ using UnityEngine;
 
 public static class DataManager
 {
-    
-    public static Dictionary<string, GiftStatus> Gifts;
-    public enum GiftStatus {delivered, lost, stocked }
+    public static Dictionary<string, Status> Gifts;
+    public static Dictionary<string, string> LevelConsumedOn;
 
     static DataManager()
     {
-        Gifts = new Dictionary<string, GiftStatus>();
+        Gifts = new Dictionary<string, Status>();
 
-        Gifts.Add("undees", GiftStatus.stocked);
-        Gifts.Add("cookie", GiftStatus.stocked);
-        Gifts.Add("sock", GiftStatus.stocked);
+        Status status;
+        status.GiftStatus = GiftStatus.stocked;
+        status.LevelUsedOn = "";
+
+        Gifts.Add("undees", status);
+        Gifts.Add("cookie", status);
+        Gifts.Add("sock", status);
     }
 
 
+    public struct Status
+    {
+        public GiftStatus GiftStatus;
+        public string LevelUsedOn;
+    }
 }
+
+
+public enum GiftStatus { delivered, lost, stocked }

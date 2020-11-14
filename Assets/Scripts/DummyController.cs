@@ -21,7 +21,7 @@ public class DummyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(OnScreen())
+        if(OnScreen() && player)
         {
             if(!wasActive)
                 gameObject.AddComponent<Scroller>();

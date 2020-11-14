@@ -8,6 +8,7 @@ using UnityEngine.Animations;
 public class ProjectileController : MonoBehaviour
 {
     public float speed = 5f;
+    public float despawnSeconds = 2f;
 
     private Rigidbody2D rb;
     private Animator animator;
@@ -33,7 +34,7 @@ public class ProjectileController : MonoBehaviour
 
     private IEnumerator Timeout()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(despawnSeconds);
         Destroy(gameObject);
     }
 

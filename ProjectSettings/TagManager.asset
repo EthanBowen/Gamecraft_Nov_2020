@@ -8,6 +8,7 @@ TagManager:
   - EnemyProjectile
   - Gift
   - chimney
+  - Enemy
   layers:
   - Default
   - TransparentFX

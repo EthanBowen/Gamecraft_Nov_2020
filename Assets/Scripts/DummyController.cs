@@ -72,10 +72,7 @@ public class DummyController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.transform.CompareTag("Player"))
-        {
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
-        }
+            ReceiveDamage(HP);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

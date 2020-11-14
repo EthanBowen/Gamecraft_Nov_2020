@@ -94,6 +94,12 @@ public class PlayerControl : MonoBehaviour
             ReceiveDamage(1);
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.transform.CompareTag("Enemy"))
+            ReceiveDamage(1);
+    }
+
     private void ReceiveDamage(int points)
     {
         HP -= points;

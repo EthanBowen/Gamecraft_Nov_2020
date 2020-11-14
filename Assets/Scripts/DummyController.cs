@@ -10,6 +10,7 @@ public class DummyController : MonoBehaviour
     public float rotateSpeed = 2f;
 
     private Transform player;
+    private bool wasActive;
 
     private void Start()
     {
@@ -22,7 +23,14 @@ public class DummyController : MonoBehaviour
     {
         if(OnScreen())
         {
+            wasActive = true;
             MoveTowardsPlayer();
+            RotateTowardsPlayer();
+        }
+        else
+        {
+            if (wasActive)
+                Invoke(nameof(RemoveFromScene), 1.0f);
         }
     }
 
@@ -37,17 +45,21 @@ public class DummyController : MonoBehaviour
     {
         // Passed the player, continue forward
         if ((transform.position - player.position).x < 0)
-            transform.position = new Vector2();
+            transform.position += transform.right * speed * Time.deltaTime;
         else
-        {
             transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+    }
 
-            // https://answers.unity.com/questions/650460/rotating-a-2d-sprite-to-face-a-target-on-a-single.html
-            Vector3 vectorToTarget = player.position - transform.position;
-            float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
-            Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-            transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * speed);
-        }
+    private void RotateTowardsPlayer()
+    {
+        if ((transform.position - player.position).x < 0)
+            return;
+
+        // https://answers.unity.com/questions/650460/rotating-a-2d-sprite-to-face-a-target-on-a-single.html
+        Vector3 vectorToTarget = player.position - transform.position;
+        float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
+        Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * speed);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -70,5 +82,10 @@ public class DummyController : MonoBehaviour
         HP -= points;
         if (HP <= 0)
             Destroy(gameObject);
+    }
+
+    private void RemoveFromScene()
+    {
+        Destroy(gameObject);
     }
 }

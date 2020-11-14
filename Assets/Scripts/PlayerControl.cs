@@ -27,6 +27,9 @@ public class PlayerControl : MonoBehaviour
     public int HP = 3;
     public float SPEED = 3f;
     public int GiftCount = 10;
+    public float TimeBetweenGifts = 1;
+    private bool CanDropGift = true;
+    
 
 
     // Start is called before the first frame update
@@ -65,17 +68,24 @@ public class PlayerControl : MonoBehaviour
 
         if (Input.GetKeyDown(dropGift))
             DropGift();
+
     }
 
     private void DropGift()
     {
-        if(GiftCount > 0 )
+        if (CanDropGift && ( GiftCount > 0 || GiftCount <= -1 ) )
         {
             Instantiate(Gift, giftPoint.position, giftPoint.rotation);
+            CanDropGift = false;
             GiftCount--;
+            StartCoroutine(GiftCorountine());
         }
-        else if (GiftCount == - 1)
-            Instantiate(Gift, giftPoint.position, giftPoint.rotation);
+    }
+
+    private IEnumerator GiftCorountine()
+    {
+        yield return new WaitForSeconds(TimeBetweenGifts);
+        CanDropGift = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

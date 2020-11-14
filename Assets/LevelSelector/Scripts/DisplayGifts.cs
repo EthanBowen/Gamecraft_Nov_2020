@@ -12,10 +12,11 @@ public class DisplayGifts : MonoBehaviour
     void Start()
     {
         Gifts = DataManager.Gifts;
-        DrawSprites();
 
         foreach (GameObject go in GiftSprites)
             go.SetActive(true);
+
+        DrawSprites();
     }
 
     public void DrawSprites()

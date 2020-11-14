@@ -11,7 +11,6 @@ public class SelectLevel : MonoBehaviour
     //////////////////////IMPORTANT////////////////////////////
     //All these lists must have the SAME length
     public GameObject[] Levels = new GameObject[2];
-    public string[] LevelNames = new string[2];
     public GameObject SelectorSprite;
     public GameObject TextField;
 
@@ -72,13 +71,13 @@ public class SelectLevel : MonoBehaviour
 
         if (CanSelect)
         {
-            Debug.Log("Can Select" + LevelNames[CurrentSelection]);
+            Debug.Log("Can Select " + Levels[CurrentSelection].GetComponent<LevelProperties>().LevelName);
 
             DataManager.Gifts.Remove(Levels[CurrentSelection].GetComponent<LevelProperties>().Gift);
             DataManager.Gifts.Add(Levels[CurrentSelection].GetComponent<LevelProperties>().Gift, false);
             GiftRemovedHandler.Invoke();
 
-            //SceneManager.LoadScene(LevelNames[CurrentSelection]);
+            //SceneManager.LoadScene(Levels[CurrentSelection].GetComponent<LevelProperties>().LevelName);
         }
         else
         {

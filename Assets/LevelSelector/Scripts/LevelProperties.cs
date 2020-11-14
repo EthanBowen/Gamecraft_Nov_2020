@@ -5,6 +5,7 @@ using UnityEngine;
 public class LevelProperties : MonoBehaviour
 {
     public string Gift;
+    public string LevelName;
     [TextArea]
     public string AcceptDialog;
     [TextArea]

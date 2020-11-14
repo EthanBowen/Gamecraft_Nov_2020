@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerControl : MonoBehaviour
@@ -19,6 +20,7 @@ public class PlayerControl : MonoBehaviour
     public KeyCode left = KeyCode.LeftArrow;
     public KeyCode attack = KeyCode.Space;
 
+    public int HP = 3;
     public float SPEED = 3f;
 
 
@@ -49,6 +51,19 @@ public class PlayerControl : MonoBehaviour
 
         if (Input.GetKeyDown(attack))
             Fire();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("EnemyProjectile"))
+            ReceiveDamage(1);
+    }
+
+    private void ReceiveDamage(int points)
+    {
+        HP -= points;
+        if (HP <= 0)
+            Destroy(gameObject);
     }
 
     void Fire()

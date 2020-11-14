@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
 
+// These are the Player's shots
 [RequireComponent(typeof(Rigidbody2D))]
-public class ShotController : MonoBehaviour
+public class ProjectileController : MonoBehaviour
 {
     public float speed = 5f;
 
@@ -22,11 +23,10 @@ public class ShotController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(!collision.CompareTag("Player"))
+        if(!collision.CompareTag("Player") && !collision.CompareTag("Projectile"))
         {
             StopCoroutine(nameof(Timeout));
             rb.velocity = Vector2.zero;
-            Destroy(collision.gameObject);
             animator.SetBool("Collided", true);
         }
     }

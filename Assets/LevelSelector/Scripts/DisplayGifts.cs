@@ -6,8 +6,7 @@ public class DisplayGifts : MonoBehaviour
 {
     public List<GameObject> GiftSprites = new List<GameObject>();
     public Transform StartLocation;
-    public float OffSet = 1f;
-    List<string> Gifts;
+    Dictionary<string, bool> Gifts;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +29,7 @@ public class DisplayGifts : MonoBehaviour
             Debug.Log(go.name);
             string name = go.name;
 
-            if ( Gifts.Contains(name)  && go.activeSelf)
+            if ( Gifts.TryGetValue(name, out bool value) && value)
             {
                 go.SetActive(true);
             }

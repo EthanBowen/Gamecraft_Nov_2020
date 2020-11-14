@@ -4,15 +4,17 @@ using UnityEngine;
 
 public static class DataManager
 {
-    public static List<string> Gifts;
+    //public static List<string> Gifts;
+    public static Dictionary<string, bool> Gifts;
 
     static DataManager()
     {
-        Gifts = new List<string>();
+        Gifts = new Dictionary<string, bool>();
+                //new List<string>();
 
-        Gifts.Add("undees");
-        Gifts.Add("cookie");
-        Gifts.Add("sock");
+        Gifts.Add("undees", true);
+        Gifts.Add("cookie", true);
+        Gifts.Add("sock", true);
     }
 
 }

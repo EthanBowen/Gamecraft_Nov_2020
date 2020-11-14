@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class SelectLevel : MonoBehaviour
 {
@@ -11,13 +12,12 @@ public class SelectLevel : MonoBehaviour
     //All these lists must have the SAME length
     public GameObject[] Levels = new GameObject[2];
     public string[] LevelNames = new string[2];
-    //public List<string> Gifts = new List<string>();
-
     public GameObject SelectorSprite;
-    int CurrentSelection;
-    private GameObject Selector;
+    public GameObject TextField;
 
-    bool CanSelect;
+    private int CurrentSelection;
+    private GameObject Selector;
+    private bool CanSelect;
 
     public UnityEvent GiftRemovedHandler;
 
@@ -68,14 +68,16 @@ public class SelectLevel : MonoBehaviour
         //transition into the scene
         //get name from the string array
 
-        CanSelect = DataManager.Gifts.Contains(Levels[CurrentSelection].GetComponent<LevelProperties>().Gift);
+        SetCanSelect();
 
         if (CanSelect)
         {
             Debug.Log("Can Select" + LevelNames[CurrentSelection]);
+
             DataManager.Gifts.Remove(Levels[CurrentSelection].GetComponent<LevelProperties>().Gift);
+            DataManager.Gifts.Add(Levels[CurrentSelection].GetComponent<LevelProperties>().Gift, false);
             GiftRemovedHandler.Invoke();
-            
+
             //SceneManager.LoadScene(LevelNames[CurrentSelection]);
         }
         else
@@ -86,12 +88,37 @@ public class SelectLevel : MonoBehaviour
 
     private void ChangeSelection()
     {
-        //throw new NotImplementedException();
-
         //puts the sprite over the selected level
         Selector.transform.position = Levels[CurrentSelection].transform.position;
 
-        CanSelect = DataManager.Gifts.Contains(Levels[CurrentSelection].GetComponent<LevelProperties>().Gift);
+        SetCanSelect();
+
+        if (CanSelect)
+        {
+            TextField.GetComponent<TextMeshProUGUI>().text = Levels[CurrentSelection].GetComponent<LevelProperties>().AcceptDialog;
+        }
+        else
+        {
+            if(DataManager.Gifts.TryGetValue(GetGiftName(), out bool value ) && !value)
+            {
+                TextField.GetComponent<TextMeshProUGUI>().text = Levels[CurrentSelection].GetComponent<LevelProperties>().ThanksText;
+            }
+            else
+            {
+                TextField.GetComponent<TextMeshProUGUI>().text = Levels[CurrentSelection].GetComponent<LevelProperties>().DenialDialog;
+            }
+
+        }
+    }
+
+    private void SetCanSelect()
+    {
+        CanSelect = DataManager.Gifts.TryGetValue(Levels[CurrentSelection].GetComponent<LevelProperties>().Gift, out bool value) && value;
+    }
+
+    private string GetGiftName()
+    {
+        return Levels[CurrentSelection].GetComponent<LevelProperties>().Gift;
     }
 
 }

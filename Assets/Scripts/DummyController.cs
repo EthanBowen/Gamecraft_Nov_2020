@@ -14,6 +14,9 @@ public class DummyController : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        var rot = transform.rotation.eulerAngles;
+        rot.z = 0;
+        transform.rotation = Quaternion.Euler(rot);
     }
 
 

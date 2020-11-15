@@ -36,8 +36,10 @@ public class PlayerControl : MonoBehaviour
     public int DamageFromCollisions = 2;
     public int GiftCount = 10;
     public float TimeBetweenGifts = 1;
+    public float shootingSpeed = 0.2f;
 
     private bool CanDropGift = true;
+    private bool firing = false;
     public string Scene = "MenuScene 1";
 
     public Animator animator;
@@ -46,6 +48,7 @@ public class PlayerControl : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        InvokeRepeating(nameof(Fire), 0.0f, shootingSpeed);
     }
 
     // Update is called once per frame
@@ -73,8 +76,10 @@ public class PlayerControl : MonoBehaviour
         
         rb.velocity = new Vector3(velx, vely, 0);
 
-        if (Input.GetKeyDown(attack))
-            Fire();
+        if (Input.GetKey(attack))
+            firing = true;
+        else
+            firing = false;
 
         if (Input.GetKeyDown(dropGift))
             DropGift();
@@ -154,7 +159,10 @@ public class PlayerControl : MonoBehaviour
 
     void Fire()
     {
-        animator.SetTrigger("CanShoot");
-        Instantiate(shot, shootPoint.position, shootPoint.rotation);
+        if (firing) 
+        {
+            animator.SetTrigger("CanShoot");
+            Instantiate(shot, shootPoint.position, shootPoint.rotation);
+        }
     }
 }

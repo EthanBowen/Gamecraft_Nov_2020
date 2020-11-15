@@ -20,6 +20,13 @@ public static class DataManager
         Gifts.Add("undees", status);
         Gifts.Add("cookie", status);
         Gifts.Add("sock", status);
+        Gifts.Add("N64", status);
+        Gifts.Add("money", status);
+        Gifts.Add("sweater", status);
+        Gifts.Add("toycar", status);
+        Gifts.Add("coal", status);
+        Gifts.Add("stocking", status);
+        Gifts.Add("ornament", status);
     }
 
 

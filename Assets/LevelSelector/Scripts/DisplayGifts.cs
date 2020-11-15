@@ -5,7 +5,6 @@ using UnityEngine;
 public class DisplayGifts : MonoBehaviour
 {
     public List<GameObject> GiftSprites = new List<GameObject>();
-    public Transform StartLocation;
     Dictionary<string, DataManager.Status> Gifts;
 
     // Start is called before the first frame update

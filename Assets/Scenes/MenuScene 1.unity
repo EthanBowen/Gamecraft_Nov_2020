@@ -1571,7 +1571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gift: cookie
-  LevelName: DavisTestScene
+  LevelName: DavisTestScene 1
   AcceptDialog: want cookie
   DenialDialog: nah cookie
   ThanksText: thanks for the cookie

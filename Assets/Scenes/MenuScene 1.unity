@@ -1440,11 +1440,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed3ab92b17f26149a434f68561d85d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Gift: cookie
-  LevelName: Some scene
-  AcceptDialog: cooooookiessss
-  DenialDialog: "whyyyyyy\t"
-  ThanksText: 'thanks '
+  Gift: N64
+  LevelName: SouthAmerica
+  AcceptDialog: Playstation Playstation!!!!
+  DenialDialog: Vacilao Morre Cedo.
+  ThanksText: Valeu meu bom.
 --- !u!4 &630935363
 Transform:
   m_ObjectHideFlags: 0

@@ -1,42 +1,52 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class TransitionHandler : MonoBehaviour
 {
-
     public GameObject Logo;
-    public GameObject StartScreen;
+    public GameObject Title;
+    public Animator logoAnimator;
     public Animator StartScreenAnimator;
-    public float TimeToStartScreen = 2f;
-    public float TimeOnStartScreen = 2f;
+    public float IntervalTime = 2f;
     public string NextScene;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        StartCoroutine(ShowStartScreen(TimeToStartScreen));
+        Logo.SetActive(true);
     }
 
-    private IEnumerator ShowStartScreen(float time)
+    public void LogoShown()
     {
-        yield return new WaitForSeconds(time);
-        StartScreen.SetActive(true);
-        StartCoroutine(ExitStartScreen(TimeOnStartScreen));
+        StartCoroutine(nameof(HideLogo));
     }
 
-    private IEnumerator ExitStartScreen(float time)
+    public void LogoHidden()
     {
-        yield return new WaitForSeconds(time);
-        StartScreenAnimator.SetTrigger("CanExit");
-        StartCoroutine(MakeTransition(TimeOnStartScreen + 1));
+        Logo.SetActive(false);
+        StartCoroutine(nameof(ShowTitle));
     }
 
-    private IEnumerator MakeTransition(float time)
+    public void TitleShown()
     {
-        yield return new WaitForSeconds(time);
+        StartCoroutine(nameof(MakeTransition));
+    }
+
+    private IEnumerator HideLogo()
+    {
+        yield return new WaitForSeconds(IntervalTime);
+        logoAnimator.SetBool("HideLogo", true);
+    }
+
+    private IEnumerator ShowTitle()
+    {
+        yield return new WaitForSeconds(IntervalTime);
+        Title.SetActive(true);
+    }
+
+    private IEnumerator MakeTransition()
+    {
+        yield return new WaitForSeconds(IntervalTime);
         SceneManager.LoadScene(NextScene);
     }
-
 }

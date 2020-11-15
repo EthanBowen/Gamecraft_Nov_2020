@@ -153,10 +153,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Logo: {fileID: 512516574}
-  StartScreen: {fileID: 947543066}
+  Title: {fileID: 947543066}
+  logoAnimator: {fileID: 512516576}
   StartScreenAnimator: {fileID: 947543069}
   TimeToStartScreen: 2
   TimeOnStartScreen: 2
+  IntervalTime: 2
   NextScene: MenuScene 1
 --- !u!4 &58601760
 Transform:
@@ -220,6 +222,7 @@ GameObject:
   - component: {fileID: 512516575}
   - component: {fileID: 512516577}
   - component: {fileID: 512516576}
+  - component: {fileID: 512516578}
   m_Layer: 5
   m_Name: NvmbrJmrs
   m_TagString: Untagged
@@ -278,6 +281,48 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &512516578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512516574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d3248374f5bcc40b0d7354484978c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finishedShowing:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 58601759}
+        m_TargetAssemblyTypeName: TransitionHandler, Assembly-CSharp
+        m_MethodName: LogoShown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  finishedHiding:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 58601759}
+        m_TargetAssemblyTypeName: TransitionHandler, Assembly-CSharp
+        m_MethodName: LogoHidden
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &947543066
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,6 +334,7 @@ GameObject:
   - component: {fileID: 947543067}
   - component: {fileID: 947543068}
   - component: {fileID: 947543069}
+  - component: {fileID: 947543070}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -348,6 +394,36 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &947543070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947543066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d3248374f5bcc40b0d7354484978c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finishedShowing:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 58601759}
+        m_TargetAssemblyTypeName: TransitionHandler, Assembly-CSharp
+        m_MethodName: TitleShown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  finishedHiding:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1272884052
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,7 +556,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Christmas
+  m_text: 'The Holidays
 
     2020 Edition'
   m_isRightToLeft: 0

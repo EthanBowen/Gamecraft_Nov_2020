@@ -9,12 +9,10 @@ using TMPro;
 public class SelectLevel : MonoBehaviour
 {
     public List<LevelProperties> Levels;
-    public GameObject SelectorSprite;
     public GameObject TextField;
     public TextMeshProUGUI PointsText;
 
     private int CurrentSelection;
-    private GameObject Selector;
     private bool CanSelect;
 
     public UnityEvent GiftRemovedHandler;
@@ -26,7 +24,7 @@ public class SelectLevel : MonoBehaviour
         //sets the selector to the first place in the list
         CurrentSelection = 0;
         PointsText.text = "Gifts Delivered:  " + DataManager.Points.ToString();
-        Selector = Instantiate(SelectorSprite, Levels[CurrentSelection].transform);
+        Levels[CurrentSelection].Hover.SetActive(true);
         ChangeSelection();
     }
 
@@ -93,8 +91,12 @@ public class SelectLevel : MonoBehaviour
 
     private void ChangeSelection()
     {
-        //puts the sprite over the selected level
-        Selector.transform.position = Levels[CurrentSelection].transform.position;
+        foreach(LevelProperties level in Levels)
+        {
+            level.Hover.SetActive(false);
+        }
+
+        Levels[CurrentSelection].Hover.SetActive(true);
 
         SetCanSelect();
 

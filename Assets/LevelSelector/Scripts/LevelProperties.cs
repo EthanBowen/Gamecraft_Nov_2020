@@ -6,6 +6,7 @@ public class LevelProperties : MonoBehaviour
 {
     public string Gift;
     public string LevelName;
+    public GameObject Hover;
     [TextArea]
     public string AcceptDialog;
     [TextArea]

@@ -104,7 +104,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 7b380310fd5324bff82ebf16372cab27, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -166,11 +166,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootPoint: {fileID: 8760882308504256265}
+  giftPoint: {fileID: 0}
   shot: {fileID: 6389955106086166083, guid: 1c4e7e2d5363ebe4d8760a8c89969840, type: 3}
+  Gift: {fileID: 0}
   up: 273
   down: 274
   right: 275
   left: 276
   attack: 32
+  dropGift: 115
+  fail: 102
+  succed: 103
   HP: 3
   SPEED: 3
+  GiftCount: 10
+  TimeBetweenGifts: 1

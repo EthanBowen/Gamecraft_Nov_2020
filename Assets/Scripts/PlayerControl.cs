@@ -29,7 +29,8 @@ public class PlayerControl : MonoBehaviour
     public KeyCode fail = KeyCode.F;
     public KeyCode succed = KeyCode.G;
 
-    public int HP = 3;
+    //public int HP = 3;
+    public int hits = 0;
     public float SPEED = 3f;
     public int DamageFromProjectiles = 1;
     public int DamageFromCollisions = 2;
@@ -107,7 +108,7 @@ public class PlayerControl : MonoBehaviour
 
     private void DropGift()
     {
-        if (CanDropGift && ( GiftCount > 0 || GiftCount <= -1 ) )
+        if (CanDropGift && ( GiftCount > hits || GiftCount <= -1 ) )
         {
             Instantiate(Gift, giftPoint.position, giftPoint.rotation);
             CanDropGift = false;
@@ -142,8 +143,8 @@ public class PlayerControl : MonoBehaviour
 
     private void ReceiveDamage(int points)
     {
-        HP -= points;
-        if (HP <= 0)
+        hits += points;
+        if (hits >= GiftCount)
             Fail();
             //Destroy(gameObject);
     }

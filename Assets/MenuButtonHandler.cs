@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MenuButtonHandler : MonoBehaviour
 {
@@ -9,7 +7,6 @@ public class MenuButtonHandler : MonoBehaviour
 
     public void OnCredits()
     {
-        
         InstructionsMenu.SetActive(false);
         CreditsMenu.SetActive(!CreditsMenu.activeSelf);
     }

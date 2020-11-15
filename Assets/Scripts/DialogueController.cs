@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using TMPro;
@@ -9,6 +10,7 @@ public class DialogueController : MonoBehaviour
 
     public GameObject panel;
     public TextMeshProUGUI text;
+    public Animator animator;
    
     private string levelToLoad;
     private bool isActive = false;
@@ -49,7 +51,13 @@ public class DialogueController : MonoBehaviour
     private void StopShowingDialogue()
     {
         isActive = false;
+        animator.SetBool("Hide", true);
+    }
+
+    public void DisablePanel()
+    {
         panel.SetActive(false);
+        animator.SetBool("Hide", false);
         loadedFromLevel = false;
         dialogFinishEvent?.Invoke();
     }

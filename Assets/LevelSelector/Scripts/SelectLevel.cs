@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.SceneManagement;
 using TMPro;
 
 public class SelectLevel : MonoBehaviour
@@ -11,7 +8,6 @@ public class SelectLevel : MonoBehaviour
     public UnityEvent<string, string> levelSelectedEvent;
 
     public List<LevelProperties> Levels;
-    public GameObject TextField;
     public TextMeshProUGUI PointsText;
 
     private int CurrentSelection;
@@ -108,28 +104,6 @@ public class SelectLevel : MonoBehaviour
         }
 
         Levels[CurrentSelection].Hover.SetActive(true);
-
-        SetCanSelect();
-
-        if (CanSelect)
-        {
-            TextField.GetComponent<TextMeshProUGUI>().text = Levels[CurrentSelection].AcceptDialog;
-        }
-        else
-        {
-            //sets the text to display
-            //thanks if the gift was delivered and denial if not
-            DataManager.Gifts.TryGetValue(GetGiftName(), out DataManager.Status giftStatus);
-            if ( giftStatus.GiftStatus == GiftStatus.delivered && giftStatus.LevelUsedOn == Levels[CurrentSelection].LevelName)
-            {
-                TextField.GetComponent<TextMeshProUGUI>().text = Levels[CurrentSelection].ThanksText;
-            }
-            else
-            {
-                TextField.GetComponent<TextMeshProUGUI>().text = Levels[CurrentSelection].DenialDialog;
-            }
-
-        }
     }
 
     private void SetCanSelect()

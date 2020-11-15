@@ -2918,8 +2918,12 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   panel: {fileID: 1269968576}
+  elfImage: {fileID: 581292648}
   text: {fileID: 50553671}
   animator: {fileID: 1269968581}
+  successElf: {fileID: 21300000, guid: ba7c44042fac6f4428ac9623027b70de, type: 3}
+  neutralElf: {fileID: 21300000, guid: 19a654074a111d44d9f82f7fea958b0b, type: 3}
+  failElf: {fileID: 21300000, guid: 7a236aa5ae88e0744a417e9ec18a5e42, type: 3}
 --- !u!1 &1426075808
 GameObject:
   m_ObjectHideFlags: 0

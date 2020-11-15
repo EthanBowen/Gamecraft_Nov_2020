@@ -84,15 +84,16 @@ public class PlayerControl : MonoBehaviour
             Fail();
 
         if (Input.GetKeyDown(succed))
-            Succed();
+            Succeed();
     }
 
-    private void Succed()
+    private void Succeed()
     {
         var temp = DataManager.Gifts[DataManager.CurrentGiftLevel];
         temp.GiftStatus = GiftStatus.delivered;
         temp.LevelUsedOn = SceneManager.GetActiveScene().name;
         DataManager.Gifts[DataManager.CurrentGiftLevel] = temp;
+        DataManager.WonLevel = true;
 
         SceneManager.LoadScene(Scene);
     }
@@ -103,6 +104,7 @@ public class PlayerControl : MonoBehaviour
         temp.GiftStatus = GiftStatus.lost;
         temp.LevelUsedOn = "";
         DataManager.Gifts[DataManager.CurrentGiftLevel] = temp;
+        DataManager.WonLevel = false;
 
         SceneManager.LoadScene(Scene);
     }
@@ -133,7 +135,7 @@ public class PlayerControl : MonoBehaviour
             ReceiveDamage(DamageFromCollisions);
 
         if (collision.CompareTag("EndLevel"))
-            Succed();
+            Succeed();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

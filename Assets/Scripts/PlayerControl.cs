@@ -108,7 +108,7 @@ public class PlayerControl : MonoBehaviour
 
     private void DropGift()
     {
-        if (CanDropGift && ( GiftCount > 0 || GiftCount <= -1 ) )
+        if (CanDropGift && ( GiftCount > hits || GiftCount <= -1 ) )
         {
             Instantiate(Gift, giftPoint.position, giftPoint.rotation);
             CanDropGift = false;

@@ -20,10 +20,12 @@ public class SelectLevel : MonoBehaviour
 
     public UnityEvent GiftRemovedHandler;
 
-
     // Start is called before the first frame update
     void Start()
     {
+        if (DataManager.LoadedIntoLevel)
+            DialoguePlaying = true;
+
         //sets the selector to the first place in the list
         CurrentSelection = 0;
         PointsText.text = "Gifts Delivered:  " + DataManager.Points.ToString();
@@ -85,6 +87,10 @@ public class SelectLevel : MonoBehaviour
             GiftRemovedHandler.Invoke();
 
             DataManager.CurrentGiftLevel = Levels[CurrentSelection].Gift;
+            DataManager.SuccessText = Levels[CurrentSelection].ThanksText;
+            DataManager.FailText = Levels[CurrentSelection].DenialDialog;
+            DataManager.LoadedIntoLevel = true;
+
             DialoguePlaying = true;
             levelSelectedEvent?.Invoke(Levels[CurrentSelection].AcceptDialog, Levels[CurrentSelection].LevelName);
         }
@@ -134,5 +140,11 @@ public class SelectLevel : MonoBehaviour
     private string GetGiftName()
     {
         return Levels[CurrentSelection].Gift;
+    }
+
+    // To be called from an event in the Dialogue controller when text is completed
+    public void Reenable()
+    {
+        DialoguePlaying = false;
     }
 }

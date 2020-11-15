@@ -1,17 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
 
 public static class DataManager
 {
     public static Dictionary<string, Status> Gifts;
     public static string CurrentGiftLevel;
     public static int Points;
+    public static string FailText;
+    public static string SuccessText;
+    public static bool LoadedIntoLevel;
+    public static bool WonLevel;
 
     static DataManager()
     {
         Gifts = new Dictionary<string, Status>();
         Points = 0;
+        LoadedIntoLevel = false;
+        WonLevel = false;
 
         Status status;
         status.GiftStatus = GiftStatus.stocked;

@@ -9,10 +9,10 @@ EditorBuildSettings:
     path: Assets/Scenes/VincentsAwesomeScene.unity
     guid: 415a1c0d626920d4e899a6777adfac9c
   - enabled: 1
-    path: Assets/Scenes/RecentJamesScene.unity
+    path: Assets/Scenes/Old/JamesScene4.unity
     guid: ee926c9eeaa414d25979d196cfffce43
   - enabled: 1
-    path: Assets/Scenes/RecentJamesScene 1.unity
+    path: Assets/Scenes/Old/JamesScene3.unity
     guid: e9566540f5a6d3849b42c2e3e96caa8b
   - enabled: 1
     path: Assets/Scenes/Levels/SouthAmerica.unity

@@ -33,7 +33,9 @@ public class PlayerControl : MonoBehaviour
     public float SPEED = 3f;
     public int GiftCount = 10;
     public float TimeBetweenGifts = 1;
+
     private bool CanDropGift = true;
+    public string Scene = "MenuScene 1";
     
 
 
@@ -88,7 +90,7 @@ public class PlayerControl : MonoBehaviour
         temp.GiftStatus = GiftStatus.delivered;
         DataManager.Gifts[DataManager.CurrentGiftLevel] = temp;
 
-        SceneManager.LoadScene("VincentsAwesomeScene");
+        SceneManager.LoadScene(Scene);
     }
 
     private void Fail()
@@ -97,7 +99,7 @@ public class PlayerControl : MonoBehaviour
         temp.GiftStatus = GiftStatus.lost;
         DataManager.Gifts[DataManager.CurrentGiftLevel] = temp;
 
-        SceneManager.LoadScene("VincentsAwesomeScene");
+        SceneManager.LoadScene(Scene);
     }
 
     private void DropGift()

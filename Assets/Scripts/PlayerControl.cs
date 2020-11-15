@@ -88,6 +88,7 @@ public class PlayerControl : MonoBehaviour
     {
         var temp = DataManager.Gifts[DataManager.CurrentGiftLevel];
         temp.GiftStatus = GiftStatus.delivered;
+        temp.LevelUsedOn = SceneManager.GetActiveScene().name;
         DataManager.Gifts[DataManager.CurrentGiftLevel] = temp;
 
         SceneManager.LoadScene(Scene);
@@ -97,6 +98,7 @@ public class PlayerControl : MonoBehaviour
     {
         var temp = DataManager.Gifts[DataManager.CurrentGiftLevel];
         temp.GiftStatus = GiftStatus.lost;
+        temp.LevelUsedOn = "";
         DataManager.Gifts[DataManager.CurrentGiftLevel] = temp;
 
         SceneManager.LoadScene(Scene);
@@ -123,6 +125,12 @@ public class PlayerControl : MonoBehaviour
     {
         if(collision.CompareTag("EnemyProjectile"))
             ReceiveDamage(1);
+
+        if (collision.CompareTag("Enemy"))
+            ReceiveDamage(2);
+
+        if (collision.CompareTag("EndLevel"))
+            Succed();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -135,7 +143,8 @@ public class PlayerControl : MonoBehaviour
     {
         HP -= points;
         if (HP <= 0)
-            Destroy(gameObject);
+            Fail();
+            //Destroy(gameObject);
     }
 
     void Fire()

@@ -8,6 +8,8 @@ using TMPro;
 
 public class SelectLevel : MonoBehaviour
 {
+    public UnityEvent<string, string> levelSelectedEvent;
+
     public List<LevelProperties> Levels;
     public GameObject TextField;
     public TextMeshProUGUI PointsText;
@@ -81,7 +83,9 @@ public class SelectLevel : MonoBehaviour
 
             DataManager.CurrentGiftLevel = Levels[CurrentSelection].Gift;
             /////////////////////UNCOMMENT FOR LEVEL TRANSITION///////////////////////////
-            SceneManager.LoadScene(Levels[CurrentSelection].LevelName);
+            ///
+            levelSelectedEvent?.Invoke(Levels[CurrentSelection].AcceptDialog, Levels[CurrentSelection].LevelName);
+            // SceneManager.LoadScene(Levels[CurrentSelection].LevelName);
         }
         else
         {

@@ -143,7 +143,7 @@ public class PlayerControl : MonoBehaviour
 
     private void ReceiveDamage(int points)
     {
-        hits -= points;
+        hits += points;
         if (hits >= GiftCount)
             Fail();
             //Destroy(gameObject);

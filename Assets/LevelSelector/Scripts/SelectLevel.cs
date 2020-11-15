@@ -8,12 +8,15 @@ using TMPro;
 
 public class SelectLevel : MonoBehaviour
 {
+    public UnityEvent<string, string> levelSelectedEvent;
+
     public List<LevelProperties> Levels;
     public GameObject TextField;
     public TextMeshProUGUI PointsText;
 
     private int CurrentSelection;
     private bool CanSelect;
+    private bool DialoguePlaying = false;
 
     public UnityEvent GiftRemovedHandler;
 
@@ -34,8 +37,10 @@ public class SelectLevel : MonoBehaviour
         //if the player selects a level then draws the sprite at that location
         //if the player presses up or down the selection changes
         //if the player presses enter selects the level and the level starts
+        if (DialoguePlaying)
+            return;
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             CurrentSelection++;
             if (CurrentSelection > Levels.Count - 1)
@@ -44,7 +49,7 @@ public class SelectLevel : MonoBehaviour
             ChangeSelection();
         }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             CurrentSelection--;
             if (CurrentSelection < 0)
@@ -80,8 +85,8 @@ public class SelectLevel : MonoBehaviour
             GiftRemovedHandler.Invoke();
 
             DataManager.CurrentGiftLevel = Levels[CurrentSelection].Gift;
-            /////////////////////UNCOMMENT FOR LEVEL TRANSITION///////////////////////////
-            SceneManager.LoadScene(Levels[CurrentSelection].LevelName);
+            DialoguePlaying = true;
+            levelSelectedEvent?.Invoke(Levels[CurrentSelection].AcceptDialog, Levels[CurrentSelection].LevelName);
         }
         else
         {

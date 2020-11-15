@@ -31,12 +31,13 @@ public class PlayerControl : MonoBehaviour
 
     public int HP = 3;
     public float SPEED = 3f;
+    public int DamageFromProjectiles = 1;
+    public int DamageFromCollisions = 2;
     public int GiftCount = 10;
     public float TimeBetweenGifts = 1;
 
     private bool CanDropGift = true;
     public string Scene = "MenuScene 1";
-    
 
 
     // Start is called before the first frame update
@@ -124,10 +125,10 @@ public class PlayerControl : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("EnemyProjectile"))
-            ReceiveDamage(1);
+            ReceiveDamage(DamageFromProjectiles);
 
         if (collision.CompareTag("Enemy"))
-            ReceiveDamage(2);
+            ReceiveDamage(DamageFromCollisions);
 
         if (collision.CompareTag("EndLevel"))
             Succed();

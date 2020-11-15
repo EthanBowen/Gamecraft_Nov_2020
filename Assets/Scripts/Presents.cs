@@ -35,7 +35,7 @@ public class Presents : MonoBehaviour
             }
             
 
-            if(i < numPresents)
+            if(i < player.GiftCount)
             {
                 presents[i].enabled = true;
             }

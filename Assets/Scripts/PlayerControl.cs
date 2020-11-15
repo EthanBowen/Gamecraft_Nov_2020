@@ -40,6 +40,7 @@ public class PlayerControl : MonoBehaviour
     private bool CanDropGift = true;
     public string Scene = "MenuScene 1";
 
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -151,6 +152,7 @@ public class PlayerControl : MonoBehaviour
 
     void Fire()
     {
+        animator.SetTrigger("CanShoot");
         Instantiate(shot, shootPoint.position, shootPoint.rotation);
     }
 }

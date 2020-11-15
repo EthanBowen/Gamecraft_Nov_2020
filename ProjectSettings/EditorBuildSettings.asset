@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/NorthAmerica.unity
     guid: 9dfc39b74c54cbf40965bdc286c5d490
   - enabled: 1
-    path: Assets/Scenes/StartScene.unity
+    path: Assets/Scenes/Levels/StartScene.unity
     guid: c54c38bd954ec6749b0c29163e2a7245
   - enabled: 1
     path: Assets/Scenes/Levels/MenuScene 1.unity

@@ -1394,9 +1394,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gift: cookie
   LevelName: Some scene
-  AcceptDialog: want cookie
-  DenialDialog: nah cookie
-  ThanksText: thanks for the cookie
+  AcceptDialog: cooooookiessss
+  DenialDialog: "whyyyyyy\t"
+  ThanksText: 'thanks '
 --- !u!4 &630935363
 Transform:
   m_ObjectHideFlags: 0
@@ -1405,7 +1405,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 630935361}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.16, y: -0.02, z: 0.25}
+  m_LocalPosition: {x: -0.11, y: -1.08, z: 0.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1535,7 +1535,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 792241769}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.39, y: 2.91, z: 0.25}
+  m_LocalPosition: {x: -2.52, y: 2.08, z: 0.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

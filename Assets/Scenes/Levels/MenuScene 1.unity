@@ -475,7 +475,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -420}
-  m_SizeDelta: {x: 486.7, y: 206.4}
+  m_SizeDelta: {x: 638.8, y: 206.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &50553671
 MonoBehaviour:
@@ -1124,9 +1124,10 @@ MonoBehaviour:
   Gift: cookie
   LevelName: Antartica
   Hover: {fileID: 871369775}
-  AcceptDialog: cooooookiessss
-  DenialDialog: "whyyyyyy\t"
-  ThanksText: 'thanks '
+  AcceptDialog: Santa, I'm not sure why you want to go to Antarctica, but I'm sure
+    whoever is there would appreciate some cookies.
+  DenialDialog: I guess we'll have to make a new batch for next year.
+  ThanksText: Nice! You've introduced a new food to the continent.
 --- !u!4 &455099560
 Transform:
   m_ObjectHideFlags: 0
@@ -1430,9 +1431,11 @@ MonoBehaviour:
   Gift: N64
   LevelName: SouthAmerica
   Hover: {fileID: 1504773370}
-  AcceptDialog: Playstation Playstation!!!!
+  AcceptDialog: Santa, there are people in South America who have never played Pilotwings
+    64!!! Let's correct that mistake and deliver them some consoles.
   DenialDialog: Vacilao Morre Cedo.
-  ThanksText: Valeu meu bom.
+  ThanksText: Good work Santa! Next year we'll need to deliver them a Super Nintendo
+    to play the original.
 --- !u!4 &630935363
 Transform:
   m_ObjectHideFlags: 0
@@ -1730,9 +1733,10 @@ MonoBehaviour:
   Gift: cookie
   LevelName: NorthAmerica
   Hover: {fileID: 2020639367}
-  AcceptDialog: want cookie
-  DenialDialog: nah cookie
-  ThanksText: thanks for the cookie
+  AcceptDialog: Santa, North America is suffering from a chocolate shortage. Please
+    deliver them some cookies!
+  DenialDialog: How will they live without any cookies?!
+  ThanksText: Good work Santa! That shold hold them for a while.
 --- !u!4 &792241771
 Transform:
   m_ObjectHideFlags: 0
@@ -2385,7 +2389,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1269968577
 RectTransform:
   m_ObjectHideFlags: 0

@@ -29,14 +29,16 @@ public class PlayerControl : MonoBehaviour
     public KeyCode fail = KeyCode.F;
     public KeyCode succed = KeyCode.G;
 
-    public int HP = 3;
+    //public int HP = 3;
+    public int hits = 0;
     public float SPEED = 3f;
+    public int DamageFromProjectiles = 1;
+    public int DamageFromCollisions = 2;
     public int GiftCount = 10;
     public float TimeBetweenGifts = 1;
 
     private bool CanDropGift = true;
     public string Scene = "MenuScene 1";
-    
 
 
     // Start is called before the first frame update
@@ -88,6 +90,7 @@ public class PlayerControl : MonoBehaviour
     {
         var temp = DataManager.Gifts[DataManager.CurrentGiftLevel];
         temp.GiftStatus = GiftStatus.delivered;
+        temp.LevelUsedOn = SceneManager.GetActiveScene().name;
         DataManager.Gifts[DataManager.CurrentGiftLevel] = temp;
 
         SceneManager.LoadScene(Scene);
@@ -97,6 +100,7 @@ public class PlayerControl : MonoBehaviour
     {
         var temp = DataManager.Gifts[DataManager.CurrentGiftLevel];
         temp.GiftStatus = GiftStatus.lost;
+        temp.LevelUsedOn = "";
         DataManager.Gifts[DataManager.CurrentGiftLevel] = temp;
 
         SceneManager.LoadScene(Scene);
@@ -104,7 +108,7 @@ public class PlayerControl : MonoBehaviour
 
     private void DropGift()
     {
-        if (CanDropGift && ( GiftCount > 0 || GiftCount <= -1 ) )
+        if (CanDropGift && ( GiftCount > hits || GiftCount <= -1 ) )
         {
             Instantiate(Gift, giftPoint.position, giftPoint.rotation);
             CanDropGift = false;
@@ -122,7 +126,13 @@ public class PlayerControl : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("EnemyProjectile"))
-            ReceiveDamage(1);
+            ReceiveDamage(DamageFromProjectiles);
+
+        if (collision.CompareTag("Enemy"))
+            ReceiveDamage(DamageFromCollisions);
+
+        if (collision.CompareTag("EndLevel"))
+            Succed();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -133,9 +143,10 @@ public class PlayerControl : MonoBehaviour
 
     private void ReceiveDamage(int points)
     {
-        HP -= points;
-        if (HP <= 0)
-            Destroy(gameObject);
+        hits += points;
+        if (hits >= GiftCount)
+            Fail();
+            //Destroy(gameObject);
     }
 
     void Fire()

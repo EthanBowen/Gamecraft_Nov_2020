@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
     path: Assets/Scenes/VincentsAwesomeScene.unity
     guid: 415a1c0d626920d4e899a6777adfac9c
   - enabled: 1
@@ -17,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RecentJamesScene 1.unity
     guid: e9566540f5a6d3849b42c2e3e96caa8b
+  - enabled: 1
+    path: Assets/Scenes/SouthAmerica.unity
+    guid: af5906b3317120240b6f3ea90199bd26
+  - enabled: 1
+    path: Assets/Scenes/Antartica.unity
+    guid: 3d49ae052047a154393ed4d8af4eb215
+  - enabled: 1
+    path: Assets/Scenes/NorthAmerica.unity
+    guid: 9dfc39b74c54cbf40965bdc286c5d490
   m_configObjects: {}

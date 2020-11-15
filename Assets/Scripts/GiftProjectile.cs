@@ -5,6 +5,13 @@ using UnityEngine;
 public class GiftProjectile : MonoBehaviour
 {
     public float Speed = 4f;
+    public float TimeAlive = 4;
+
+
+    private void Start()
+    {
+        StartCoroutine(TimeOut(TimeAlive));
+    }
 
     // Update is called once per frame
     void Update()
@@ -21,4 +28,11 @@ public class GiftProjectile : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private IEnumerator TimeOut(float time)
+    {
+        yield return new WaitForSeconds(time);
+        Destroy(gameObject);
+    }
+
 }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7331281635478136903}
   - component: {fileID: 7331281635478136896}
   m_Layer: 0
-  m_Name: Dummy
+  m_Name: Turkey
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7331281635478136908}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5, y: 0, z: 0}
-  m_LocalScale: {x: 2.56, y: 2.56, z: 2.56}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7331281635478136898
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -74,9 +74,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: 3b19d8967725f46ecb9307aedbaf6f78, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 25a05ed60d7f545c7a4c13f3de1aa36f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.28, y: 1.28}
@@ -98,9 +98,9 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.05, y: 0}
-  m_Size: {x: 0.65, y: 0.3}
-  m_Direction: 1
+  m_Offset: {x: -0.35238862, y: 0.13744444}
+  m_Size: {x: 4.2035937, y: 8.272103}
+  m_Direction: 0
 --- !u!50 &7331281635478136903
 Rigidbody2D:
   serializedVersion: 4
@@ -136,4 +136,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 3
   speed: 2
-  rotateSpeed: 1

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using TMPro;
-using System;
 
 public class SelectLevel : MonoBehaviour
 {
@@ -27,6 +27,9 @@ public class SelectLevel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (DataManager.AllUsed())
+            SceneManager.LoadScene("EndScene");
+
         if (DataManager.LoadedIntoLevel)
             DialoguePlaying = true;
 

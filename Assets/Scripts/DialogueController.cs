@@ -23,6 +23,9 @@ public class DialogueController : MonoBehaviour
 
     private void Start()
     {
+        if (DataManager.AllUsed())
+            return;
+
         if(DataManager.LoadedIntoLevel)
         {
             loadedFromLevel = true;

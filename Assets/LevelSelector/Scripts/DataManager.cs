@@ -12,6 +12,23 @@ public static class DataManager
 
     static DataManager()
     {
+        Reset();
+    }
+
+    public static bool AllUsed()
+    {
+        foreach(var Gift in Gifts)
+        {
+            if(Gift.Value.GiftStatus == GiftStatus.selected
+                || Gift.Value.GiftStatus == GiftStatus.stocked)
+            return false;
+        }
+
+        return true;
+    }
+
+    public static void Reset()
+    {
         Gifts = new Dictionary<string, Status>();
         Points = 0;
         LoadedIntoLevel = false;
@@ -32,7 +49,6 @@ public static class DataManager
         Gifts.Add("coal", status);
         Gifts.Add("sock", status);
     }
-
 
     public struct Status
     {

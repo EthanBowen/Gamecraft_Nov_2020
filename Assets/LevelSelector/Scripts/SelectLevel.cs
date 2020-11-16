@@ -20,7 +20,6 @@ public class SelectLevel : MonoBehaviour
     private bool CanSelect;
     private bool DialoguePlaying = false;
 
-    public UnityEvent GiftRemovedHandler;
     private string SelectedGift;
 
 
@@ -190,10 +189,6 @@ public class SelectLevel : MonoBehaviour
             temp.GiftStatus = GiftStatus.selected;
             temp.LevelUsedOn = Levels[CurrentSelection].LevelName;
             DataManager.Gifts[SelectedGift] = temp;
-
-            //sets the gift status to delivered in the data manager
-            GiftRemovedHandler.Invoke();
-
 
             DataManager.CurrentGiftLevel = GiftLocations[CurrentGiftSelection].name; //the gift selected
 

@@ -170,8 +170,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190316
+  m_fontColor: {r: 0.9245283, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1123,7 +1123,60 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelName: Antartica
   Hover: {fileID: 871369775}
-  GiftToDialog: []
+  GiftToDialog:
+  - Gift: sweater
+    AcceptDialog: Sir! The people in the Antarctica continent are pretty cold! Do
+      you think you can get these sweaters to them?
+    DenialDialog: "The people of Antarctica\u2026 they just wanted a warm sweater..."
+    ThanksText: I can picture their warm smiles now! Thanks, sir!
+  - Gift: toycar
+    AcceptDialog: Sir! The people in the Antarctica continent want fun toys to play
+      with! Do you think you can get these to them?
+    DenialDialog: "Surely they won\u2019t miss what they don\u2019t know?"
+    ThanksText: You made it! Thanks, sir!
+  - Gift: ornament
+    AcceptDialog: Sir! The people in the Antarctica continent would like 2020 holiday
+      decorations! Do you think you can get these to them?
+    DenialDialog: 2020 just got worse...
+    ThanksText: The people of Antarctica will never forget 2020! Thanks, sir!
+  - Gift: stocking
+    AcceptDialog: Sir! The people in the Antarctica continent would like 2020 holiday
+      stockings! Do you think you can get these to them?
+    DenialDialog: 2020 just got so much worse...
+    ThanksText: The people of Antarctica will never forget 2020! Thanks, sir!
+  - Gift: N64
+    AcceptDialog: Sir! The people in the Antarctica continent are asking for PilotWings
+      64! Can you send these bundles to them?
+    DenialDialog: "Shame\u2026 the people of Antarctica won\u2019t know the glory
+      of PilotWings 64..."
+    ThanksText: "PilotWings 64\u2019s fanbase has extended to Antarctica! Thanks,
+      sir!"
+  - Gift: undees
+    AcceptDialog: Sir! The people in the Antarctica continent would like fresh undies!
+      Do you think you can get them new underwear?
+    DenialDialog: We can NOT deliver them undies like that...
+    ThanksText: The people of Antarctica will be super-fresh! Thanks, sir!
+  - Gift: money
+    AcceptDialog: Sir! The people in the Antarctica continent are asking for a holiday
+      bonus! Can you send this to them?
+    DenialDialog: "Maybe it\u2019s enough knowing you tried?"
+    ThanksText: The people of Antarctica will be thankful for their advance! Thanks,
+      sir!
+  - Gift: cookie
+    AcceptDialog: Sir! The people in the Antarctica continent would like home-made
+      cookies! Do you think you can get these to them while they are still fresh?
+    DenialDialog: Technically they were factory-made anyways...
+    ThanksText: The people of Antarctica will have the greatest holiday season! Thanks,
+      sir!
+  - Gift: coal
+    AcceptDialog: Sir! Do the people of Antarctica really deserve coal?
+    DenialDialog: "Maybe it\u2019s better this way..."
+    ThanksText: Coal is better than nothing, right?
+  - Gift: sock
+    AcceptDialog: Sir! The people in the Antarctica continent would like fresh socks!
+      Do you think you can get them some new ones?
+    DenialDialog: We can NOT deliver them socks like that...
+    ThanksText: The people of Antarctica will be super-fresh! Thanks, sir!
 --- !u!4 &455099560
 Transform:
   m_ObjectHideFlags: 0
@@ -1428,45 +1481,61 @@ MonoBehaviour:
   Hover: {fileID: 1504773370}
   GiftToDialog:
   - Gift: sweater
-    AcceptDialog: sweateraccept
-    DenialDialog: sweaterdeny
-    ThanksText: sweaterthanks
+    AcceptDialog: Sir! There are children in the South American continent that are
+      asking for fame and glory! North Pole fashion indicates these sweaters will
+      give it to them, right?
+    DenialDialog: Do you realize how long it took to make those?
+    ThanksText: The children in South America will rise to the top of the fashion
+      charts now! Thanks, sir!
   - Gift: toycar
-    AcceptDialog: toycaraccept
-    DenialDialog: toycardeny
-    ThanksText: toycarthanks
+    AcceptDialog: "Sir! There are children in the South American continent that are
+      asking for a new car! We can\u2019t give them that\u2026 but can you send these
+      instead?"
+    DenialDialog: "This really sucks\u2026"
+    ThanksText: The children in South America will wake up to a great new gift! Thanks,
+      sir!
   - Gift: ornament
-    AcceptDialog: ornamentaccept
-    DenialDialog: ornament_deny
-    ThanksText: ornament_thanks
+    AcceptDialog: Sir! The children in the South American continent have lackluster
+      holiday decorations! Can you get these ornaments to them?
+    DenialDialog: Worst. Sleigh ride. Ever...
+    ThanksText: Best. Deco. Ever! Thanks, sir!
   - Gift: stocking
-    AcceptDialog: stocking_accept
-    DenialDialog: stocking_deny
-    ThanksText: stocking_thanks
+    AcceptDialog: Sir! The children in the South American continent have lackluster
+      stockings! Can you get these new ones to them?
+    DenialDialog: Worst. Trip. Ever...
+    ThanksText: Best. Stockings. Ever! Thanks, sir!
   - Gift: N64
-    AcceptDialog: N64_accept
-    DenialDialog: N64_deny
-    ThanksText: N64_thanks
+    AcceptDialog: "Sir! There are children in the South American continent that haven\u2019t
+      played Super Mario 64! Can you send these bundles to them?"
+    DenialDialog: Nintendo 64 is old anyways, I guess. Maybe next year we can get
+      them Super Mario 3D All-Stars for Nintendo Switch.
+    ThanksText: "The children in South America are now livin\u2019 it up with Super
+      Mario 64! Thanks, sir!"
   - Gift: undees
-    AcceptDialog: undees_accept
-    DenialDialog: undees_deny
-    ThanksText: undees_thanks
+    AcceptDialog: Sir! There are children in the South American continent that are
+      asking for some fancy underwear! We found the perfect pairs!
+    DenialDialog: This is not fancy...
+    ThanksText: "They\u2019ll be fancy-pants now! Thanks, sir!"
   - Gift: money
-    AcceptDialog: money_accept
-    DenialDialog: money_deny
-    ThanksText: money_thanks
+    AcceptDialog: Sir! There are children in the South American continent that are
+      asking for some bundles of cash! Would you send these to them?
+    DenialDialog: It was the thought that counts, I guess...
+    ThanksText: "The children in South America are now livin\u2019 it up with that
+      fat dough! Thanks, sir!"
   - Gift: cookie
-    AcceptDialog: cookie_accept
-    DenialDialog: cookie_deny
-    ThanksText: cookie_thanks
+    AcceptDialog: Sir! The children in the South American continent forgot to get
+      us treats! We should bring these to them instead!
+    DenialDialog: "We\u2019ll just tell them we forgot... "
+    ThanksText: "They won\u2019t forget next time! Thanks, sir!"
   - Gift: coal
-    AcceptDialog: coal_accept
-    DenialDialog: coal_deny
-    ThanksText: coal_thanks
+    AcceptDialog: Sir! Coal? To South America?
+    DenialDialog: Nobody wants to unwrap coal gone bad. How can coal go bad?
+    ThanksText: "It\u2019s unfortunate, but the children need to learn to be nice."
   - Gift: sock
-    AcceptDialog: sock_accept
-    DenialDialog: sock_deny
-    ThanksText: sock_thanks
+    AcceptDialog: Sir! There are children in the South American continent that are
+      asking for some fancy socks! We found the perfect pairs!
+    DenialDialog: This is not fancy...
+    ThanksText: "They\u2019ll be fancy-pants now! Thanks, sir!"
 --- !u!4 &630935363
 Transform:
   m_ObjectHideFlags: 0
@@ -1763,7 +1832,60 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelName: NorthAmerica
   Hover: {fileID: 2020639367}
-  GiftToDialog: []
+  GiftToDialog:
+  - Gift: sweater
+    AcceptDialog: Sir! The kids in the North American continent want the latest fashion!
+      According to tradition, this is all the rage! Can you get these sweaters to
+      them?
+    DenialDialog: Mama elf worked really hard on those...
+    ThanksText: These kids will be revolutionary trend-setters! Thanks, sir!
+  - Gift: toycar
+    AcceptDialog: "Sir! The kids in the North American continent are asking for a
+      new car! We can\u2019t give them that\u2026 but toy cars are next best, right?"
+    DenialDialog: "They didn\u2019t want toys anyways\u2026 right?"
+    ThanksText: They should be so happy now! Thanks, sir!
+  - Gift: ornament
+    AcceptDialog: Sir! Can you get these new 2020 holiday decorations to the kids
+      in the North American continent?
+    DenialDialog: "They\u2019re all broken now!"
+    ThanksText: The kids will love them! Thanks, sir!
+  - Gift: stocking
+    AcceptDialog: Sir! Can you get these new stockings to the kids in the North American
+      continent?
+    DenialDialog: "They can\u2019t be delivered like this!"
+    ThanksText: The kids will love them! Thanks, sir!
+  - Gift: N64
+    AcceptDialog: Sir! The kids in the North American continent are asking for retro
+      Nintendo! Can you send these to them?
+    DenialDialog: I guess not every child needs a brand new Nintnedo 64...
+    ThanksText: Those kids will be smiling ear-to-ear with their new Nintendo 64!
+      Thanks, sir!
+  - Gift: undees
+    AcceptDialog: Sir! The kids in the North American continent need new underwear!
+      Can you get these to them?
+    DenialDialog: Could you really not even manage underwear?
+    ThanksText: You did a great thing! Thanks, sir!
+  - Gift: money
+    AcceptDialog: Sir! The kids in the North American continent want money for the
+      holidays! Can you send these bundles to them?
+    DenialDialog: "Well\u2026 they say money doesn\u2019t buy happiness..."
+    ThanksText: Those kids will be smiling ear-to-ear with their new spending money!
+      Thanks, sir!
+  - Gift: cookie
+    AcceptDialog: "Sir! The North American continent didn\u2019t leave out any treats
+      this year! Should we bring some to them?"
+    DenialDialog: "This isn\u2019t working..."
+    ThanksText: This should teach them! Thanks, sir!
+  - Gift: coal
+    AcceptDialog: Sir! Are you really wanting to send out coal to North America?
+    DenialDialog: "Did you lose on purpose so you don\u2019t have to deliver a lump
+      of coal?"
+    ThanksText: "Maybe they\u2019ll make the nice-list next year."
+  - Gift: sock
+    AcceptDialog: Sir! The kids in the North American continent need new socks! Can
+      you get these to them?
+    DenialDialog: Were socks really that hard?
+    ThanksText: You did a great thing! Thanks, sir!
 --- !u!4 &792241771
 Transform:
   m_ObjectHideFlags: 0
@@ -3396,7 +3518,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 100
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: e88e395c6b2c6e34c9c1b5a4125a2d3c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4026,21 +4148,6 @@ MonoBehaviour:
   - {fileID: 638461266}
   - {fileID: 1615009668}
   - {fileID: 430760093}
-  GiftRemovedHandler:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 890611558}
-        m_TargetAssemblyTypeName: DisplayGifts, Assembly-CSharp
-        m_MethodName: DrawSprites
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!4 &2026073326
 Transform:
   m_ObjectHideFlags: 0

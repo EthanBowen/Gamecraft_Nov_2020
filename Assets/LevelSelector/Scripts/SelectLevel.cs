@@ -16,7 +16,7 @@ public class SelectLevel : MonoBehaviour
     private int CurrentGiftSelection;
     private bool IsSelectingGift;
 
-    private int CurrentSelection;
+    private int CurrentSelection = -1;
     private bool CanSelect;
     private bool DialoguePlaying = false;
 
@@ -27,15 +27,14 @@ public class SelectLevel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-
         if (DataManager.LoadedIntoLevel)
             DialoguePlaying = true;
 
         GiftSelector.SetActive(true);
-        CurrentGiftSelection = GetNextIndexUp(0);
+        CurrentGiftSelection = GetNextIndexUp(CurrentSelection);
 
         IsSelectingGift = true;
+        
         ChangeGiftSelection(); 
     }
 
@@ -77,13 +76,13 @@ public class SelectLevel : MonoBehaviour
         //if they have not selected a gift
         else
         {
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.DownArrow))
             {
                 CurrentGiftSelection = GetNextIndexUp(CurrentGiftSelection);
                 ChangeGiftSelection();
             }
 
-            if (Input.GetKeyDown(KeyCode.DownArrow))
+            if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 CurrentGiftSelection = GetNextIndexDown(CurrentGiftSelection);
                 ChangeGiftSelection();
@@ -110,8 +109,8 @@ public class SelectLevel : MonoBehaviour
 
     private int GetNextIndexDown(int currentIndex)
     {
-        if (CurrentGiftSelection - 1 == -1)
-            return GiftLocations.Count - 1;
+        if (currentIndex - 1 == -1)
+            return GetNextIndexDown(GiftLocations.Count);
 
         int index = 0;
 
@@ -130,8 +129,9 @@ public class SelectLevel : MonoBehaviour
     //helper method to get the next index up
     private int GetNextIndexUp(int currentIndex)
     {
-        if (CurrentGiftSelection + 1 == GiftLocations.Count)
-            return 0;
+        // A way to loop around from the beginning
+        if (currentIndex + 1 == GiftLocations.Count)
+            return GetNextIndexUp(-1);
 
         int index = 0;
 
@@ -149,11 +149,11 @@ public class SelectLevel : MonoBehaviour
 
     private void ChangeGiftSelection()
     {
-        GiftSelector.transform.position = new Vector3(
+        GiftSelector.transform.position = GiftLocations[CurrentGiftSelection].transform.position; /*new Vector3(
             GiftSelector.transform.position.x, 
             GiftLocations[CurrentGiftSelection].transform.position.y, 
             GiftLocations[CurrentGiftSelection].transform.position.z
-        );
+        );*/
     }
 
     #endregion

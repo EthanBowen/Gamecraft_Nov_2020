@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
+using System;
 
 public class SelectLevel : MonoBehaviour
 {
@@ -10,23 +11,32 @@ public class SelectLevel : MonoBehaviour
     public List<LevelProperties> Levels;
     public TextMeshProUGUI PointsText;
 
+    public GameObject GiftSelector;
+    public List<GameObject> GiftLocations;
+    private int CurrentGiftSelection;
+    private bool IsSelectingGift;
+
     private int CurrentSelection;
     private bool CanSelect;
     private bool DialoguePlaying = false;
 
     public UnityEvent GiftRemovedHandler;
+    private string SelectedGift;
+
 
     // Start is called before the first frame update
     void Start()
     {
+
+
         if (DataManager.LoadedIntoLevel)
             DialoguePlaying = true;
 
-        //sets the selector to the first place in the list
-        CurrentSelection = 0;
-        PointsText.text = "Gifts Delivered:  " + DataManager.Points.ToString();
-        Levels[CurrentSelection].Hover.SetActive(true);
-        ChangeSelection();
+        GiftSelector.SetActive(true);
+        CurrentGiftSelection = GetNextIndexUp(2);
+
+        IsSelectingGift = true;
+        ChangeGiftSelection(); 
     }
 
     // Update is called once per frame
@@ -38,30 +48,116 @@ public class SelectLevel : MonoBehaviour
         if (DialoguePlaying)
             return;
 
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        //if the player has already selected a gift
+        if (!IsSelectingGift)
         {
-            CurrentSelection++;
-            if (CurrentSelection > Levels.Count - 1)
-                CurrentSelection = 0;
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                CurrentSelection++;
+                if (CurrentSelection > Levels.Count - 1)
+                    CurrentSelection = 0;
 
-            ChangeSelection();
+                ChangeSelection();
+            }
+
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                CurrentSelection--;
+                if (CurrentSelection < 0)
+                    CurrentSelection = Levels.Count - 1;
+
+                ChangeSelection();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                LevelSelect();
+            }
+        }
+        //if they have not selected a gift
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                Debug.Log("Changed selection");
+                CurrentGiftSelection = GetNextIndexUp(CurrentGiftSelection);
+                ChangeGiftSelection();
+            }
+
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                CurrentGiftSelection = GetNextIndexDown(CurrentGiftSelection);
+                ChangeGiftSelection();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                SelectGift();
+            }
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            CurrentSelection--;
-            if (CurrentSelection < 0)
-                CurrentSelection = Levels.Count - 1;
-
-             ChangeSelection();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-             LevelSelect();
-        }
     }
 
+    private void SelectGift()
+    {
+        SelectedGift = GiftLocations[CurrentGiftSelection].name;
+        IsSelectingGift = false;
+        GiftSelector.SetActive(false);
+        SelectContinent();
+    }
+
+    private int GetNextIndexDown(int currentIndex)
+    {
+        if (CurrentGiftSelection - 1 == -1)
+            return GiftLocations.Count - 1;
+
+        int index = 0;
+
+        for (int i = currentIndex - 1; i > 0; i--)
+        {
+            if (GiftLocations[i].activeSelf)
+            {
+                index = i;
+                break;
+            }
+        }
+
+        return index;
+    }
+
+    //helper method to get the next index up
+    private int GetNextIndexUp(int currentIndex)
+    {
+        if (CurrentGiftSelection + 1 == GiftLocations.Count)
+            return 0;
+
+        int index = 0;
+
+        for (int i = currentIndex + 1; i < GiftLocations.Count; i++)
+        {
+            if (GiftLocations[i].activeSelf)
+            {
+                index = i;
+                break;
+            }
+        }
+
+        return index;
+    }
+
+    private void ChangeGiftSelection()
+    {
+        GiftSelector.transform.position = GiftLocations[CurrentGiftSelection].transform.position + new Vector3(1, 0, 0);
+    }
+
+    private void SelectContinent()
+    {
+        //sets the selector to the first place in the list
+        CurrentSelection = 0;
+        PointsText.text = "Gifts Delivered:  " + DataManager.Points.ToString();
+        Levels[CurrentSelection].Hover.SetActive(true);
+        ChangeSelection();
+    }
 
     private void LevelSelect()
     {
@@ -98,7 +194,7 @@ public class SelectLevel : MonoBehaviour
 
     private void ChangeSelection()
     {
-        foreach(LevelProperties level in Levels)
+        foreach (LevelProperties level in Levels)
         {
             level.Hover.SetActive(false);
         }

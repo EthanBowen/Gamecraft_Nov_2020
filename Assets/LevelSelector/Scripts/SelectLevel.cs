@@ -34,6 +34,8 @@ public class SelectLevel : MonoBehaviour
 
         source = GetComponent<AudioSource>();
 
+        PointsText.text = "Gifts Delivered:  " + DataManager.Points.ToString();
+
         GiftSelector.SetActive(true);
         CurrentGiftSelection = GetNextIndexUp(CurrentSelection);
 
@@ -174,7 +176,6 @@ public class SelectLevel : MonoBehaviour
     {
         //sets the selector to the first place in the list
         CurrentSelection = 0;
-        PointsText.text = "Gifts Delivered:  " + DataManager.Points.ToString();
         Levels[CurrentSelection].Hover.SetActive(true);
         ChangeSelection();
     }

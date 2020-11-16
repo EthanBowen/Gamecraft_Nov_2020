@@ -19,9 +19,9 @@ public class SelectLevel : MonoBehaviour
     private int CurrentSelection = -1;
     private bool CanSelect;
     private bool DialoguePlaying = false;
+    private AudioSource source;
 
     private string SelectedGift;
-
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +31,8 @@ public class SelectLevel : MonoBehaviour
 
         if (DataManager.LoadedIntoLevel)
             DialoguePlaying = true;
+
+        source = GetComponent<AudioSource>();
 
         GiftSelector.SetActive(true);
         CurrentGiftSelection = GetNextIndexUp(CurrentSelection);
@@ -72,6 +74,7 @@ public class SelectLevel : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Return))
             {
+                source.Play();
                 LevelSelect();
             }
         }
@@ -92,6 +95,7 @@ public class SelectLevel : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Return))
             {
+                source.Play();
                 SelectGift();
             }
         }

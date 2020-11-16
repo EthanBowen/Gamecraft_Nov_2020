@@ -4106,21 +4106,6 @@ MonoBehaviour:
   - {fileID: 638461266}
   - {fileID: 1615009668}
   - {fileID: 430760093}
-  GiftRemovedHandler:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 890611558}
-        m_TargetAssemblyTypeName: DisplayGifts, Assembly-CSharp
-        m_MethodName: DrawSprites
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!4 &2026073326
 Transform:
   m_ObjectHideFlags: 0

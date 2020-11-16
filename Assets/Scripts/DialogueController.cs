@@ -53,9 +53,7 @@ public class DialogueController : MonoBehaviour
         isActive = true;
         // We're coming back from a level, show success or fail
         if (scene == "")
-        {
             elfImage.sprite = DataManager.WonLevel ? successElf : failElf;
-        }
         else
             elfImage.sprite = neutralElf;
 

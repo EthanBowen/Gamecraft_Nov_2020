@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class ShowEndText : MonoBehaviour
 {
+    public AudioClip winClip;
+    public AudioClip loseClip;
+
     public TextMeshProUGUI EndText;
     public TextMeshProUGUI GiftDisplay;
     public string MenuSceneName = "MenuScene 1";
@@ -18,23 +21,31 @@ public class ShowEndText : MonoBehaviour
     [TextArea]
     public string LoseText;
 
+    private AudioSource source;
     private bool DeliveredAll;
 
     // Start is called before the first frame update
     void Start()
     {
+        source = GetComponent<AudioSource>();
         DeliveredAll = DataManager.AllDelivered();
-
         DisplayText();
     }
 
     private void DisplayText()
     {
         if (DeliveredAll)
+        {
+            source.clip = winClip;
             EndText.text = WinText;
+        }
         else
+        {
+            source.clip = loseClip;
             EndText.text = LoseText;
+        }
 
+        source.Play();
         GiftDisplay.text = GiftText + DataManager.GetNumGiftDelivered();
     }
 

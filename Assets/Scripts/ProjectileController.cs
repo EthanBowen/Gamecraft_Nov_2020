@@ -19,6 +19,7 @@ public class ProjectileController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        source = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         rb.velocity = new Vector2(speed, 0);
         StartCoroutine(nameof(Timeout));
@@ -28,8 +29,8 @@ public class ProjectileController : MonoBehaviour
     {
         if(!collision.CompareTag("Player") && !collision.CompareTag("Projectile"))
         {
-            source.clip = shotHitClip;
-            source.Play();
+            source.volume = 0.1f;
+            source.PlayOneShot(shotHitClip);
             StopCoroutine(nameof(Timeout));
             rb.velocity = Vector2.zero;
             animator.SetBool("Collided", true);

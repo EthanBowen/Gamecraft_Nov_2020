@@ -48,7 +48,6 @@ public class PlayerControl : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        InvokeRepeating(nameof(Fire), 0.0f, shootingSpeed);
     }
 
     // Update is called once per frame
@@ -77,9 +76,19 @@ public class PlayerControl : MonoBehaviour
         rb.velocity = new Vector3(velx, vely, 0);
 
         if (Input.GetKey(attack))
-            firing = true;
+        {
+            if(!firing)
+            {
+                Instantiate(shot, shootPoint.position, shootPoint.rotation);
+                firing = true;
+                InvokeRepeating(nameof(Fire), shootingSpeed, shootingSpeed);
+            }
+        }
         else
+        {
             firing = false;
+            CancelInvoke(nameof(Fire));
+        }
 
         if (Input.GetKeyDown(dropGift))
             DropGift();

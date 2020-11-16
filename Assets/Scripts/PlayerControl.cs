@@ -105,9 +105,9 @@ public class PlayerControl : MonoBehaviour
 
     private void Fail()
     {
-        var temp = DataManager.Gifts[DataManager.CurrentGiftLevel];
-        temp.GiftStatus = GiftStatus.lost;
-        temp.LevelUsedOn = "";
+        var temp = DataManager.Gifts[DataManager.CurrentGiftLevel]; //current gift
+        temp.GiftStatus = GiftStatus.lost; // sets it to lost
+        temp.LevelUsedOn = SceneManager.GetActiveScene().name; 
         DataManager.Gifts[DataManager.CurrentGiftLevel] = temp;
         DataManager.WonLevel = false;
 

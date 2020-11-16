@@ -33,7 +33,7 @@ public class SelectLevel : MonoBehaviour
             DialoguePlaying = true;
 
         GiftSelector.SetActive(true);
-        CurrentGiftSelection = GetNextIndexUp(2);
+        CurrentGiftSelection = GetNextIndexUp(0);
 
         IsSelectingGift = true;
         ChangeGiftSelection(); 
@@ -107,6 +107,7 @@ public class SelectLevel : MonoBehaviour
         GiftSelector.SetActive(false);
 
         Debug.Log(SelectedGift);
+        Debug.Log(CurrentGiftSelection);
 
         SelectContinent();
     }
@@ -181,18 +182,23 @@ public class SelectLevel : MonoBehaviour
             var temp = DataManager.Gifts[SelectedGift];
             temp.GiftStatus = GiftStatus.selected;
             temp.LevelUsedOn = Levels[CurrentSelection].LevelName;
-            DataManager.Gifts[Levels[CurrentSelection].Gift] = temp;
+            DataManager.Gifts[SelectedGift] = temp;
+
 
             //sets the gift status to delivered in the data manager
             GiftRemovedHandler.Invoke();
 
-            DataManager.CurrentGiftLevel = Levels[CurrentSelection].Gift; //the selected level
-            DataManager.SuccessText = Levels[CurrentSelection].ThanksText; 
-            DataManager.FailText = Levels[CurrentSelection].DenialDialog;
+            DataManager.CurrentGiftLevel = GiftLocations[CurrentGiftSelection].name; //the gift selected
+
+            DataManager.SuccessText = Levels[CurrentSelection].GiftToDialog[CurrentGiftSelection].ThanksText;
+            DataManager.FailText = Levels[CurrentSelection].GiftToDialog[CurrentGiftSelection].DenialDialog;
             DataManager.LoadedIntoLevel = true;
 
+            //very important so I dont forget this later
+            //this script assumes that the gifts in the levels will be the same in order that they are in the world
+
             DialoguePlaying = true;
-            levelSelectedEvent?.Invoke(Levels[CurrentSelection].AcceptDialog, Levels[CurrentSelection].LevelName);
+            levelSelectedEvent?.Invoke(Levels[CurrentSelection].GiftToDialog[CurrentGiftSelection].AcceptDialog, Levels[CurrentSelection].LevelName);
         }
         else
         {
@@ -221,7 +227,7 @@ public class SelectLevel : MonoBehaviour
 
     private string GetGiftName()
     {
-        return Levels[CurrentSelection].Gift;
+        return Levels[CurrentSelection].GiftToDialog[CurrentGiftSelection].Gift;
     }
 
     // To be called from an event in the Dialogue controller when text is completed

@@ -26,7 +26,6 @@ public class DisplayGifts : MonoBehaviour
 
         foreach(GameObject go in GiftSprites)
         {
-            Debug.Log(go.name);
             string name = go.name;
 
             //If the player has the gift with them the gift is displayed

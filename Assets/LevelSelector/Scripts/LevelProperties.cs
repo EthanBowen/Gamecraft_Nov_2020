@@ -7,19 +7,7 @@ public class LevelProperties : MonoBehaviour
     public string LevelName;
     public GameObject Hover;
 
-    /*
-    // Should remove
-    public string Gift;
-    [TextArea]
-    public string AcceptDialog;
-    [TextArea]
-    public string DenialDialog;
-    [TextArea]
-    public string ThanksText;
-    */
-
     public List<DialogOptions> GiftToDialog;
-
 }
 
 [System.Serializable]

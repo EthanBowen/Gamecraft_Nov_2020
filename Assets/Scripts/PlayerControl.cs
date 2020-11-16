@@ -26,8 +26,10 @@ public class PlayerControl : MonoBehaviour
     public KeyCode dropGift = KeyCode.S;
 
     //Debug commands
+    /*
     public KeyCode fail = KeyCode.F;
     public KeyCode succed = KeyCode.G;
+    */
 
     //public int HP = 3;
     public int hits = 0;
@@ -94,11 +96,13 @@ public class PlayerControl : MonoBehaviour
             DropGift();
 
         //Debug Commands
+        /*
         if (Input.GetKeyDown(fail))
             Fail();
 
         if (Input.GetKeyDown(succed))
             Succeed();
+        */
     }
 
     private void Succeed()

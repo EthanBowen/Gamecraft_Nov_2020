@@ -27,6 +27,17 @@ public static class DataManager
         return true;
     }
 
+    public static bool AllDelivered()
+    {
+        foreach(KeyValuePair<string, Status> kvp in Gifts)
+        {
+            if (kvp.Value.GiftStatus != GiftStatus.delivered)
+                return false;
+        }
+
+        return true;
+    }
+
     public static void Reset()
     {
         Gifts = new Dictionary<string, Status>();
@@ -48,6 +59,19 @@ public static class DataManager
         Gifts.Add("cookie", status);
         Gifts.Add("coal", status);
         Gifts.Add("sock", status);
+    }
+
+    public static int GetNumGiftDelivered()
+    {
+        int giftsDelivered = 0;
+
+        foreach(KeyValuePair<string, Status> kvp in Gifts)
+        {
+            if (kvp.Value.GiftStatus == GiftStatus.delivered)
+                giftsDelivered++;
+        }
+
+        return giftsDelivered;
     }
 
     public struct Status

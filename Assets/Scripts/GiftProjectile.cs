@@ -1,12 +1,10 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GiftProjectile : MonoBehaviour
 {
     public float Speed = 4f;
     public float TimeAlive = 4;
-
 
     private void Start()
     {

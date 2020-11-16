@@ -9,9 +9,11 @@ public class ProjectileController : MonoBehaviour
 {
     public float speed = 5f;
     public float despawnSeconds = 2f;
+    public AudioClip shotHitClip;
 
     private Rigidbody2D rb;
     private Animator animator;
+    private AudioSource source;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +28,8 @@ public class ProjectileController : MonoBehaviour
     {
         if(!collision.CompareTag("Player") && !collision.CompareTag("Projectile"))
         {
+            source.clip = shotHitClip;
+            source.Play();
             StopCoroutine(nameof(Timeout));
             rb.velocity = Vector2.zero;
             animator.SetBool("Collided", true);

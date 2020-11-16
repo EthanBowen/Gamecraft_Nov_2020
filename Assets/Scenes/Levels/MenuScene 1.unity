@@ -2872,9 +2872,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Santa, it is time to deliver gifts! Deliver all of them so you can make
-    everybody happy!\n\nMovement: Up, Down, Right, Left \nShoot: Space\nDrop Gift:
-    S\n\n"
+  m_text: "Drop gifts into chimneys to earn points!\n\nMovement: Up, Down, Right,
+    Left \nShoot: Space\nDrop Gift: S\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6a8e693a1dd3a0d47a6fbfb76290d739, type: 2}
   m_sharedMaterial: {fileID: 4906638232479858800, guid: 6a8e693a1dd3a0d47a6fbfb76290d739, type: 2}

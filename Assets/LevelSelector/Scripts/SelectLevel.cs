@@ -98,11 +98,16 @@ public class SelectLevel : MonoBehaviour
 
     }
 
+    #region Gift Select
+
     private void SelectGift()
     {
         SelectedGift = GiftLocations[CurrentGiftSelection].name;
         IsSelectingGift = false;
         GiftSelector.SetActive(false);
+
+        Debug.Log(SelectedGift);
+
         SelectContinent();
     }
 
@@ -150,6 +155,8 @@ public class SelectLevel : MonoBehaviour
         GiftSelector.transform.position = GiftLocations[CurrentGiftSelection].transform.position + new Vector3(1, 0, 0);
     }
 
+    #endregion
+
     private void SelectContinent()
     {
         //sets the selector to the first place in the list
@@ -170,16 +177,17 @@ public class SelectLevel : MonoBehaviour
         {
             Debug.Log("Can Select " + Levels[CurrentSelection].LevelName);
 
-            var temp = DataManager.Gifts[Levels[CurrentSelection].Gift];
-            temp.GiftStatus = GiftStatus.delivered;
+            //sets the gift to selected and the level selected to the one in question
+            var temp = DataManager.Gifts[SelectedGift];
+            temp.GiftStatus = GiftStatus.selected;
             temp.LevelUsedOn = Levels[CurrentSelection].LevelName;
             DataManager.Gifts[Levels[CurrentSelection].Gift] = temp;
 
             //sets the gift status to delivered in the data manager
             GiftRemovedHandler.Invoke();
 
-            DataManager.CurrentGiftLevel = Levels[CurrentSelection].Gift;
-            DataManager.SuccessText = Levels[CurrentSelection].ThanksText;
+            DataManager.CurrentGiftLevel = Levels[CurrentSelection].Gift; //the selected level
+            DataManager.SuccessText = Levels[CurrentSelection].ThanksText; 
             DataManager.FailText = Levels[CurrentSelection].DenialDialog;
             DataManager.LoadedIntoLevel = true;
 
@@ -204,7 +212,11 @@ public class SelectLevel : MonoBehaviour
 
     private void SetCanSelect()
     {
-        CanSelect = DataManager.Gifts.TryGetValue(Levels[CurrentSelection].Gift, out DataManager.Status giftStatus) && giftStatus.GiftStatus == GiftStatus.stocked;
+        foreach(KeyValuePair<string, DataManager.Status> kvp in DataManager.Gifts)
+        {
+            if (kvp.Value.GiftStatus == GiftStatus.stocked)
+                CanSelect = true;
+        }
     }
 
     private string GetGiftName()

@@ -42,4 +42,4 @@ public static class DataManager
 }
 
 
-public enum GiftStatus { delivered, lost, stocked }
+public enum GiftStatus { delivered, lost, stocked, selected }

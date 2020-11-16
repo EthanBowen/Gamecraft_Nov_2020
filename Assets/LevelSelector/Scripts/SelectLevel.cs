@@ -123,6 +123,9 @@ public class SelectLevel : MonoBehaviour
             }
         }
 
+        if (index == 0 && !GiftLocations[0].activeSelf)
+            return GetNextIndexDown(GiftLocations.Count);
+
         return index;
     }
 
@@ -143,6 +146,9 @@ public class SelectLevel : MonoBehaviour
                 break;
             }
         }
+
+        if (index == 0 && !GiftLocations[0].activeSelf)
+            return GetNextIndexUp(-1);
 
         return index;
     }

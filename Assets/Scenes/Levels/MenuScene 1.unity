@@ -1123,7 +1123,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelName: Antartica
   Hover: {fileID: 871369775}
-  GiftToDialog: []
+  GiftToDialog:
+  - Gift: sweater
+    AcceptDialog: 
+    DenialDialog: 
+    ThanksText: 
+  - Gift: toycar
+    AcceptDialog: 
+    DenialDialog: 
+    ThanksText: 
+  - Gift: ornament
+    AcceptDialog: 
+    DenialDialog: 
+    ThanksText: 
+  - Gift: stocking
+    AcceptDialog: 
+    DenialDialog: 
+    ThanksText: 
+  - Gift: N64
+    AcceptDialog: 
+    DenialDialog: 
+    ThanksText: 
+  - Gift: undees
+    AcceptDialog: 
+    DenialDialog: 
+    ThanksText: 
+  - Gift: money
+    AcceptDialog: 
+    DenialDialog: 
+    ThanksText: 
+  - Gift: cookie
+    AcceptDialog: 
+    DenialDialog: 
+    ThanksText: 
+  - Gift: coal
+    AcceptDialog: 
+    DenialDialog: 
+    ThanksText: 
+  - Gift: sock
+    AcceptDialog: 
+    DenialDialog: 
+    ThanksText: 
 --- !u!4 &455099560
 Transform:
   m_ObjectHideFlags: 0
@@ -1763,7 +1803,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelName: NorthAmerica
   Hover: {fileID: 2020639367}
-  GiftToDialog: []
+  GiftToDialog:
+  - Gift: sweater
+    AcceptDialog: 
+    DenialDialog: 
+    ThanksText: 
+  - Gift: toycar
+    AcceptDialog: 
+    DenialDialog: 
+    ThanksText: 
+  - Gift: ornament
+    AcceptDialog: 
+    DenialDialog: 
+    ThanksText: 
+  - Gift: stocking
+    AcceptDialog: 
+    DenialDialog: 
+    ThanksText: 
+  - Gift: N64
+    AcceptDialog: 
+    DenialDialog: 
+    ThanksText: 
+  - Gift: undees
+    AcceptDialog: 
+    DenialDialog: 
+    ThanksText: 
+  - Gift: money
+    AcceptDialog: 
+    DenialDialog: 
+    ThanksText: 
+  - Gift: cookie
+    AcceptDialog: 
+    DenialDialog: 
+    ThanksText: 
+  - Gift: coal
+    AcceptDialog: 
+    DenialDialog: 
+    ThanksText: 
+  - Gift: sock
+    AcceptDialog: 
+    DenialDialog: 
+    ThanksText: 
 --- !u!4 &792241771
 Transform:
   m_ObjectHideFlags: 0

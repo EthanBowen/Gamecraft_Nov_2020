@@ -333,11 +333,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6086482}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.5999994, y: -2.2, z: -51.764122}
+  m_LocalPosition: {x: -5.67, y: -2.2, z: -51.764122}
   m_LocalScale: {x: 0.11642732, y: 0.11642732, z: 0.11642732}
   m_Children: []
   m_Father: {fileID: 867459090}
-  m_RootOrder: 3
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &18826063
 GameObject:
@@ -766,7 +766,7 @@ Transform:
   m_LocalScale: {x: 0.12812704, y: 0.11305327, z: 0.5426557}
   m_Children: []
   m_Father: {fileID: 867459090}
-  m_RootOrder: 8
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &257932317
 GameObject:
@@ -844,7 +844,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 257932317}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.69, y: 3.27, z: 0}
+  m_LocalPosition: {x: -5.52, y: 3.98, z: 0}
   m_LocalScale: {x: 0.009693791, y: 0.009693791, z: 0.009693791}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1168,11 +1168,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 430760093}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.3999996, y: -4.82, z: -51.764122}
+  m_LocalPosition: {x: -5.66, y: -4.82, z: -51.764122}
   m_LocalScale: {x: 0.076968, y: 0.076968, z: 0.076968}
   m_Children: []
   m_Father: {fileID: 867459090}
-  m_RootOrder: 0
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &455099558
 GameObject:
@@ -1203,13 +1203,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed3ab92b17f26149a434f68561d85d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Gift: cookie
   LevelName: Antartica
   Hover: {fileID: 871369775}
-  AcceptDialog: Santa, I'm not sure why you want to go to Antarctica, but I'm sure
-    whoever is there would appreciate some cookies.
-  DenialDialog: I guess we'll have to make a new batch for next year.
-  ThanksText: Nice! You've introduced a new food to the continent.
+  GiftToDialog: []
 --- !u!4 &455099560
 Transform:
   m_ObjectHideFlags: 0
@@ -1304,7 +1300,7 @@ Transform:
   m_LocalScale: {x: 0.098532535, y: 0.098532535, z: 0.098532535}
   m_Children: []
   m_Father: {fileID: 867459090}
-  m_RootOrder: 9
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &556633385
 GameObject:
@@ -1510,14 +1506,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed3ab92b17f26149a434f68561d85d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Gift: N64
   LevelName: SouthAmerica
   Hover: {fileID: 1504773370}
-  AcceptDialog: Santa, there are people in South America who have never played Pilotwings
-    64!!! Let's correct that mistake and deliver them some consoles.
-  DenialDialog: Vacilao Morre Cedo.
-  ThanksText: Good work Santa! Next year we'll need to deliver them a Super Nintendo
-    to play the original.
+  GiftToDialog:
+  - Gift: sweater
+    AcceptDialog: sweateraccept
+    DenialDialog: sweaterdeny
+    ThanksText: sweaterthanks
+  - Gift: toycar
+    AcceptDialog: toycaraccept
+    DenialDialog: toycardeny
+    ThanksText: toycarthanks
+  - Gift: ornament
+    AcceptDialog: ornamentaccept
+    DenialDialog: ornament_deny
+    ThanksText: ornament_thanks
+  - Gift: stocking
+    AcceptDialog: stocking_accept
+    DenialDialog: stocking_deny
+    ThanksText: stocking_thanks
+  - Gift: N64
+    AcceptDialog: N64_accept
+    DenialDialog: N64_deny
+    ThanksText: N64_thanks
+  - Gift: undees
+    AcceptDialog: undees_accept
+    DenialDialog: undees_deny
+    ThanksText: undees_thanks
+  - Gift: money
+    AcceptDialog: money_accept
+    DenialDialog: money_deny
+    ThanksText: money_thanks
+  - Gift: cookie
+    AcceptDialog: cookie_accept
+    DenialDialog: cookie_deny
+    ThanksText: cookie_thanks
+  - Gift: coal
+    AcceptDialog: coal_accept
+    DenialDialog: coal_deny
+    ThanksText: coal_thanks
+  - Gift: sock
+    AcceptDialog: sock_accept
+    DenialDialog: sock_deny
+    ThanksText: sock_thanks
 --- !u!4 &630935363
 Transform:
   m_ObjectHideFlags: 0
@@ -1608,11 +1639,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 638461266}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.73, y: -3.02, z: -51.764122}
+  m_LocalPosition: {x: -5.83, y: -3.02, z: -51.764122}
   m_LocalScale: {x: 0.10628247, y: 0.10628247, z: 0.10628247}
   m_Children: []
   m_Father: {fileID: 867459090}
-  m_RootOrder: 2
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &665207645
 GameObject:
@@ -1812,13 +1843,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed3ab92b17f26149a434f68561d85d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Gift: cookie
   LevelName: NorthAmerica
   Hover: {fileID: 2020639367}
-  AcceptDialog: Santa, North America is suffering from a chocolate shortage. Please
-    deliver them some cookies!
-  DenialDialog: How will they live without any cookies?!
-  ThanksText: Good work Santa! That shold hold them for a while.
+  GiftToDialog: []
 --- !u!4 &792241771
 Transform:
   m_ObjectHideFlags: 0
@@ -1857,19 +1884,19 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 867459089}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.8, y: 0.5361887, z: 51.764122}
+  m_LocalPosition: {x: -1.11, y: 0.5361887, z: 51.764122}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 430760095}
-  - {fileID: 1615009670}
-  - {fileID: 638461268}
-  - {fileID: 6086484}
-  - {fileID: 2076657209}
-  - {fileID: 1155841067}
-  - {fileID: 1180398656}
-  - {fileID: 1863642465}
-  - {fileID: 211795172}
   - {fileID: 527113863}
+  - {fileID: 211795172}
+  - {fileID: 1863642465}
+  - {fileID: 1180398656}
+  - {fileID: 1155841067}
+  - {fileID: 2076657209}
+  - {fileID: 6086484}
+  - {fileID: 638461268}
+  - {fileID: 1615009670}
+  - {fileID: 430760095}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2367,7 +2394,7 @@ Transform:
   m_LocalScale: {x: 0.099056244, y: 0.099056244, z: 0.099056244}
   m_Children: []
   m_Father: {fileID: 867459090}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1180398654
 GameObject:
@@ -2445,11 +2472,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1180398654}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.8299994, y: 0.70999986, z: -51.764122}
+  m_LocalPosition: {x: -5.86, y: 0.70999986, z: -51.764122}
   m_LocalScale: {x: 0.06397506, y: 0.06397506, z: 0.06397506}
   m_Children: []
   m_Father: {fileID: 867459090}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1269968576
 GameObject:
@@ -3389,11 +3416,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1615009668}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.5699997, y: -3.8300002, z: -51.764122}
+  m_LocalPosition: {x: -5.75, y: -3.8300002, z: -51.764122}
   m_LocalScale: {x: 0.079329334, y: 0.079329334, z: 0.079329334}
   m_Children: []
   m_Father: {fileID: 867459090}
-  m_RootOrder: 1
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1760573393
 GameObject:
@@ -3627,11 +3654,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1863642463}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.8199997, y: 1.4799999, z: -51.764122}
+  m_LocalPosition: {x: -5.85, y: 1.4799999, z: -51.764122}
   m_LocalScale: {x: 0.09040574, y: 0.08211972, z: 0.06178122}
   m_Children: []
   m_Father: {fileID: 867459090}
-  m_RootOrder: 7
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1893416763
 GameObject:
@@ -4104,11 +4131,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2076657207}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.7299995, y: -1.4200001, z: -51.764122}
+  m_LocalPosition: {x: -5.78, y: -1.4200001, z: -51.764122}
   m_LocalScale: {x: 0.09717533, y: 0.09717533, z: 0.09717533}
   m_Children: []
   m_Father: {fileID: 867459090}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2079694980
 GameObject:

@@ -79,7 +79,6 @@ public class SelectLevel : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                Debug.Log("Changed selection");
                 CurrentGiftSelection = GetNextIndexUp(CurrentGiftSelection);
                 ChangeGiftSelection();
             }
@@ -105,9 +104,6 @@ public class SelectLevel : MonoBehaviour
         SelectedGift = GiftLocations[CurrentGiftSelection].name;
         IsSelectingGift = false;
         GiftSelector.SetActive(false);
-
-        Debug.Log(SelectedGift);
-        Debug.Log(CurrentGiftSelection);
 
         SelectContinent();
     }
@@ -153,7 +149,11 @@ public class SelectLevel : MonoBehaviour
 
     private void ChangeGiftSelection()
     {
-        GiftSelector.transform.position = GiftLocations[CurrentGiftSelection].transform.position + new Vector3(1, 0, 0);
+        GiftSelector.transform.position = new Vector3(
+            GiftSelector.transform.position.x, 
+            GiftLocations[CurrentGiftSelection].transform.position.y, 
+            GiftLocations[CurrentGiftSelection].transform.position.z
+        );
     }
 
     #endregion
@@ -176,29 +176,32 @@ public class SelectLevel : MonoBehaviour
 
         if (CanSelect)
         {
-            Debug.Log("Can Select " + Levels[CurrentSelection].LevelName);
-
             //sets the gift to selected and the level selected to the one in question
             var temp = DataManager.Gifts[SelectedGift];
             temp.GiftStatus = GiftStatus.selected;
             temp.LevelUsedOn = Levels[CurrentSelection].LevelName;
             DataManager.Gifts[SelectedGift] = temp;
 
-
             //sets the gift status to delivered in the data manager
             GiftRemovedHandler.Invoke();
 
+
             DataManager.CurrentGiftLevel = GiftLocations[CurrentGiftSelection].name; //the gift selected
 
-            DataManager.SuccessText = Levels[CurrentSelection].GiftToDialog[CurrentGiftSelection].ThanksText;
-            DataManager.FailText = Levels[CurrentSelection].GiftToDialog[CurrentGiftSelection].DenialDialog;
+            var level = Levels[CurrentSelection].GiftToDialog;
+            var levelDialogue = level.Find(delegate (DialogOptions options) {
+                return options.Gift == SelectedGift;
+            });
+
+            DataManager.SuccessText = levelDialogue.ThanksText;
+            DataManager.FailText = levelDialogue.DenialDialog;
             DataManager.LoadedIntoLevel = true;
 
             //very important so I dont forget this later
             //this script assumes that the gifts in the levels will be the same in order that they are in the world
 
             DialoguePlaying = true;
-            levelSelectedEvent?.Invoke(Levels[CurrentSelection].GiftToDialog[CurrentGiftSelection].AcceptDialog, Levels[CurrentSelection].LevelName);
+            levelSelectedEvent?.Invoke(levelDialogue.AcceptDialog, Levels[CurrentSelection].LevelName);
         }
         else
         {

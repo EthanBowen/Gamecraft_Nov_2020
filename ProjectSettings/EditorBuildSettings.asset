@@ -6,12 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Levels/MenuScene 1.unity
+    guid: 230e2dfc52b13854b94038f045c5086e
+  - enabled: 0
     path: Assets/Scenes/VincentsAwesomeScene.unity
     guid: 415a1c0d626920d4e899a6777adfac9c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Old/JamesScene4.unity
     guid: ee926c9eeaa414d25979d196cfffce43
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Old/JamesScene3.unity
     guid: e9566540f5a6d3849b42c2e3e96caa8b
   - enabled: 1
@@ -23,10 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/NorthAmerica.unity
     guid: 9dfc39b74c54cbf40965bdc286c5d490
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/StartScene.unity
     guid: c54c38bd954ec6749b0c29163e2a7245
-  - enabled: 1
-    path: Assets/Scenes/Levels/MenuScene 1.unity
-    guid: 230e2dfc52b13854b94038f045c5086e
   m_configObjects: {}

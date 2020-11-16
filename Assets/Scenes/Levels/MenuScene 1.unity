@@ -161,7 +161,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Total Gifts Delivered: '
+  m_text: 'Gifts Delivered: '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6a8e693a1dd3a0d47a6fbfb76290d739, type: 2}
   m_sharedMaterial: {fileID: 4906638232479858800, guid: 6a8e693a1dd3a0d47a6fbfb76290d739, type: 2}
@@ -333,7 +333,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6086482}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.67, y: -2.2, z: -51.764122}
+  m_LocalPosition: {x: -5.306, y: -1.91, z: -51.764122}
   m_LocalScale: {x: 0.11642732, y: 0.11642732, z: 0.11642732}
   m_Children: []
   m_Father: {fileID: 867459090}
@@ -762,7 +762,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 211795170}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.9199996, y: 2.52, z: -51.764122}
+  m_LocalPosition: {x: -5.57, y: 2.79, z: -51.764122}
   m_LocalScale: {x: 0.12812704, y: 0.11305327, z: 0.5426557}
   m_Children: []
   m_Father: {fileID: 867459090}
@@ -802,8 +802,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -49, y: -213}
-  m_SizeDelta: {x: 326.2, y: 928.3}
+  m_AnchoredPosition: {x: -54, y: -345}
+  m_SizeDelta: {x: 326.2, y: 1139.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &331330042
 MonoBehaviour:
@@ -825,10 +825,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\r\nRyan Bahmanyar\r\n\r\nDavis Canby\r\n\r\nPenny Lewis\r\n\r\nEthan
-    Bowen\r\n\r\nJessica Bailey\r\n\r\nLuke Vincent\r\n\r\nJames Youngblood\r\n\r\nThomas
-    Roberts\r\n\r\nVincent Levy\r\r\n\r\n\r\nSPECIAL THANKS:\r\n\r\n\r\nUniversity
-    of Utah\r\n\r\nGameCraft"
+  m_text: "Ryan Bahmanyar\r\n \nDavis Canby\r\n\r\nPenny Lewis\r\n\r\nEthan Bowen\r\n\r\nJessica
+    Bailey\r\n\r\nLuke Vincent\r\n\r\nJames Youngblood\r\n\r\nThomas Roberts\r\n\r\nVincent
+    Levy\r\n\r\nArjun Shivakumar\r\n\r\nCarson Shea\r\n\r\n\r\nSPECIAL THANKS:\r\n\r\n\r\nUniversity
+    of Utah\r\n\r\nGameCraft\r\n\r\nFreesound.org"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6a8e693a1dd3a0d47a6fbfb76290d739, type: 2}
   m_sharedMaterial: {fileID: 4906638232479858800, guid: 6a8e693a1dd3a0d47a6fbfb76290d739, type: 2}
@@ -855,8 +855,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30.7
-  m_fontSizeBase: 30.7
+  m_fontSize: 28
+  m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1086,7 +1086,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 430760093}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.66, y: -4.82, z: -51.764122}
+  m_LocalPosition: {x: -5.35, y: -4.82, z: -51.764122}
   m_LocalScale: {x: 0.076968, y: 0.076968, z: 0.076968}
   m_Children: []
   m_Father: {fileID: 867459090}
@@ -1267,7 +1267,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 527113861}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.9199996, y: 3.53, z: -51.764122}
+  m_LocalPosition: {x: -5.57, y: 3.77, z: -51.764122}
   m_LocalScale: {x: 0.098532535, y: 0.098532535, z: 0.098532535}
   m_Children: []
   m_Father: {fileID: 867459090}
@@ -1626,7 +1626,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 638461266}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.83, y: -3.02, z: -51.764122}
+  m_LocalPosition: {x: -5.466, y: -2.87, z: -51.764122}
   m_LocalScale: {x: 0.10628247, y: 0.10628247, z: 0.10628247}
   m_Children: []
   m_Father: {fileID: 867459090}
@@ -2430,7 +2430,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1155841065}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.0099998, y: -0.3500001, z: -51.764122}
+  m_LocalPosition: {x: -5.5, y: 0.03, z: -51.764122}
   m_LocalScale: {x: 0.099056244, y: 0.099056244, z: 0.099056244}
   m_Children: []
   m_Father: {fileID: 867459090}
@@ -2512,7 +2512,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1180398654}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.86, y: 0.70999986, z: -51.764122}
+  m_LocalPosition: {x: -5.5, y: 0.89, z: -51.764122}
   m_LocalScale: {x: 0.06397506, y: 0.06397506, z: 0.06397506}
   m_Children: []
   m_Father: {fileID: 867459090}
@@ -3583,7 +3583,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1615009668}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.75, y: -3.8300002, z: -51.764122}
+  m_LocalPosition: {x: -5.48, y: -3.78, z: -51.764122}
   m_LocalScale: {x: 0.079329334, y: 0.079329334, z: 0.079329334}
   m_Children: []
   m_Father: {fileID: 867459090}
@@ -3605,7 +3605,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1667334382
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3665,7 +3665,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1667334381}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.04, y: 4.08, z: 0}
+  m_LocalPosition: {x: -6.67, y: 4.08, z: 0}
   m_LocalScale: {x: 0.022079255, y: 0.022079255, z: 0.022079255}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3903,7 +3903,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1863642463}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.85, y: 1.4799999, z: -51.764122}
+  m_LocalPosition: {x: -5.5, y: 1.76, z: -51.764122}
   m_LocalScale: {x: 0.09040574, y: 0.08211972, z: 0.06178122}
   m_Children: []
   m_Father: {fileID: 867459090}
@@ -4462,7 +4462,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2076657207}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.78, y: -1.4200001, z: -51.764122}
+  m_LocalPosition: {x: -5.5, y: -1, z: -51.764122}
   m_LocalScale: {x: 0.09717533, y: 0.09717533, z: 0.09717533}
   m_Children: []
   m_Father: {fileID: 867459090}
